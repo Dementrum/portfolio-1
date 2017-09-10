@@ -2,9 +2,7 @@ const gulp = require('gulp'),
   normalize = require('node-normalize-scss'),
   del = require('del'),
   prefix = require('gulp-autoprefixer'),
-  babel = require('gulp-babel'),
   cheerio = require('gulp-cheerio'),
-  concat = require('gulp-concat'),
   csso = require('gulp-csso'),
   eslint = require('gulp-eslint'),
   imageMin = require('gulp-imagemin'),
@@ -18,7 +16,6 @@ const gulp = require('gulp'),
   svgSprite = require('gulp-svg-sprite'),
   svgMin = require('gulp-svgmin'),
   ttf2woff = require('gulp-ttf2woff'),
-  uglify = require('gulp-uglify'),
   gulpWebpack = require('gulp-webpack'),
   webpackConfig = require('./webpack.config.js'),
   webpack = require('webpack'),
@@ -48,7 +45,8 @@ const paths = {
     dest: 'dist/fonts',
   },
   img:{
-    src: 'src/img/**/*.+(jpg|png|gif)',
+    favicon: 'src/img/favicon.*',
+    src: ['src/img/**/*.+(jpg|png|gif)', '!src/img/favicon.*'],
     dest: 'dist/img/',
   },
   svg:{
@@ -102,6 +100,11 @@ function imageMinify() {
     .pipe(imageMin())
     .pipe(notify('Images compressed successfully'))
     .pipe(plumber.stop())
+    .pipe(gulp.dest(paths.img.dest))
+}
+
+function imageCopy() {
+  return gulp.src(paths.img.favicon)
     .pipe(gulp.dest(paths.img.dest))
 }
 
@@ -180,6 +183,7 @@ exports.scripts = scripts;
 exports.clean = clean;
 exports.watch = watch;
 exports.imageMinify = imageMinify;
+exports.imageCopy = imageCopy;
 exports.fontsConvert = fontsConvert;
 exports.fontsCopy = fontsCopy;
 exports.pugConvert = pugConvert;
@@ -189,7 +193,7 @@ exports.serve = serve;
 
 gulp.task('default', gulp.series(
   clean,
-  gulp.parallel(fontsConvert, fontsCopy, imageMinify, spriteCreate),
+  gulp.parallel(fontsConvert, fontsCopy, imageMinify, imageCopy, spriteCreate),
   gulp.parallel(pugConvert, styles, scripts),
   gulp.parallel(watch, serve)
 ));

@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 const config = {
   output: {
@@ -25,8 +24,7 @@ const config = {
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery'
-    }),
-    new FaviconsWebpackPlugin('./src/img/favicon.png')
+    })
   ]
 };
 
