@@ -1,5 +1,5 @@
 body{
-  @include regular-font(16px, 1.42);
+  @include regular-font(16px, 1.5);
   color: $font-main-color;
 }
 
@@ -15,12 +15,14 @@ a{
 
 h1{
   @include accent-font(63px, 1.05);
+  text-transform: uppercase;
   color: $font-title-main-color;
   padding: $padding-h1;
 }
 
 h2{
   @include accent-font(35px, 1.17);
+  text-transform: uppercase;
   color: $font-title-second-color;
   padding: $padding-h2;
 }
