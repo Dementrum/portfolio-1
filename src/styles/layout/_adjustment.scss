@@ -1,0 +1,26 @@
+body{
+  @include regular-font(16px, 1.42);
+  color: $font-main-color;
+}
+
+a{
+  color: $font-link-color;
+  border-bottom: 1px solid $font-link-color;
+  transition: $transition;
+
+  &:hover{
+    border-bottom: 1px solid transparent;
+  }
+}
+
+h1{
+  @include accent-font(63px, 1.05);
+  color: $font-title-main-color;
+  padding: $padding-h1;
+}
+
+h2{
+  @include accent-font(35px, 1.17);
+  color: $font-title-second-color;
+  padding: $padding-h2;
+}

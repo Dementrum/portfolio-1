@@ -71,7 +71,11 @@ function styles() {
     .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(sass({outputStyle: 'compressed', includePaths: require('node-normalize-scss').includePaths}))
-    .pipe(csso())
+    .pipe(csso({
+      restructure: false,
+      sourceMap: true,
+      debug: true
+    }))
     .pipe(sourcemaps.write())
     .pipe(prefix('last 3 version', '> 1%', 'ie 10', 'Opera 12.1'))
     .pipe(rename({suffix: '.min'}))

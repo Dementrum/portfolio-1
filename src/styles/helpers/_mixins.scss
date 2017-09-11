@@ -1,0 +1,39 @@
+@function rem($px) {
+  @return $px / 16px+0rem;
+}
+
+// Fonts
+@mixin font-family($family, $weight){
+  font-family: $family;
+  font-style: normal;
+  font-weight: $weight;
+}
+@mixin font-size($size: null, $line-height: null){
+  font-size: $size;
+  line-height: $line-height;
+}
+
+@mixin accent-font($size: null, $line-height: null) {
+  @include font-family($accent-font, 400);
+  @include font-size($size, $line-height);
+}
+
+@mixin regular-font($size: null, $line-height: null) {
+  @include font-family($main-font, 400);
+  @include font-size($size, $line-height);
+}
+
+@mixin medium-font($size: null, $line-height: null) {
+  @include font-family($main-font, 500);
+  @include font-size($size, $line-height);
+}
+
+@mixin light-font($size: null, $line-height: null) {
+  @include font-family($main-font, 200);
+  @include font-size($size, $line-height);
+}
+
+@mixin bold-font($size: null, $line-height: null) {
+  @include font-family($main-font, 700);
+  @include font-size($size, $line-height);
+}
