@@ -1,14 +1,2 @@
--var pages = {index: {href: 'index.html', name: "Главная"},about: {href: 'about.html', name: "Обо мне"},blog: {href: 'blog.html', name: "Блог"},works: {href: 'works.html', name: "Мои работы"}};
-
-include ../helpers/_mixins
 include ./partials/_head
   block title
-
-body
-  block pagename
-  ul
-    each item in pages
-      li
-        a(href=item.href)= item.name
-  +checkout
-  h2 Hello!
