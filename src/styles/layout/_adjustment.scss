@@ -3,26 +3,28 @@ body{
   color: $font-main-color;
 }
 
-a{
-  color: $font-link-color;
-  border-bottom: 1px solid $font-link-color;
-  transition: $transition;
-
-  &:hover{
-    border-bottom: 1px solid transparent;
-  }
+.wrapper{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
 
-h1{
-  @include accent-font(63px, 1.05);
-  text-transform: uppercase;
-  color: $font-title-main-color;
-  padding: $padding-h1;
+.main-content{
+  flex-grow: 1;
+  flex-shrink: 0;
 }
 
-h2{
-  @include accent-font(35px, 1.17);
-  text-transform: uppercase;
-  color: $font-title-second-color;
-  padding: $padding-h2;
+.footer{
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.button{
+  @include medium-font;
+  display: block;
+  border: 1px solid;
+  border-radius: 3px;
 }

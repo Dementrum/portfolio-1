@@ -1,0 +1,9 @@
+mixin link(href, name, className)
+  li(class=className + '__item')
+    a(href=href title=name class=className + '__link')= name
+
+mixin socials(href, name, icon, className)
+  li(class=className + '__item')
+    a(href=href title=name target="blank" class=className + '__link')= name
+      svg(class=className + '__icon')
+        use(xlink:href=icon)

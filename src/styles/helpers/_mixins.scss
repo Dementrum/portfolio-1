@@ -37,3 +37,40 @@
   @include font-family($main-font, 700);
   @include font-size($size, $line-height);
 }
+
+//Elements
+
+@mixin text-links() {
+  color: $font-link-color;
+  border-bottom: 1px solid $font-link-color;
+  transition: $transition;
+
+  &:hover{
+    border-bottom: 1px solid transparent;
+  }
+}
+
+@mixin main-heading() {
+  @include accent-font(63px, 1.05);
+  text-transform: uppercase;
+  color: $font-title-main-color;
+  padding: $padding-h1;
+}
+
+@mixin second-heading() {
+  @include accent-font(35px, 1.17);
+  text-transform: uppercase;
+  color: $font-title-second-color;
+  padding: $padding-h2;
+}
+
+@mixin block-links() {
+  @include medium-font;
+  padding: 10px 25px;
+  background-color: rgba(0, 191, 165, .8);
+  transition: $transition;
+
+  &:hover{
+    background-color: rgba(0, 150, 136, .8);
+  }
+}

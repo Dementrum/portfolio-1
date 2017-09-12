@@ -1,0 +1,10 @@
+.copyright{
+  @include light-font;
+  color: $font-light-color;
+  opacity: .5;
+}
+
+.index__copyright{
+  padding: 40px 0;
+  opacity: 1;
+}
