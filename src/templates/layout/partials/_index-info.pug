@@ -1,0 +1,16 @@
+.welcome
+        .info
+          .info__description
+            .info__photo
+              img.info__img(src="./img/content/myphoto.jpg", alt="Глафира Чурилович")
+            .info__name Глафира Чурилович
+            .info__text Личный сайт веб-разработчика
+          ul.info__socials
+            +socials(vk.src, vk.name, vk.icon, 'info')
+            +socials(github.src, github.name, github.icon, 'info')
+            +socials(linkedin.src, linkedin.name, linkedin.icon, 'info')
+        nav.index-menu
+          ul.index-menu__list
+            +link(works.src, works.name, 'index-menu')
+            +link(about.src, about.name, 'index-menu')
+            +link(blog.src, blog.name, 'index-menu')
