@@ -1,7 +1,7 @@
-include ./../layout/partials/_head
-  block title
-body
-  .wrapper
-    main.main-content
-      block main-content
-    block footer
+extends ./../layout/basic-template
+
+block content
+  main.main-content.main-content--overlay
+    
+block footer
+  include ./../layout/partials/_footer

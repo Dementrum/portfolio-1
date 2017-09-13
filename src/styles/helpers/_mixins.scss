@@ -67,10 +67,10 @@
       background-color: rgba(55, 62, 66, .2);
     }
     &::before{
-      left: -20px;
+      left: 0;
     }
     &::after{
-      right: -20px;
+      right: 0;
     }
 }
 
@@ -91,10 +91,10 @@
     background-color: rgba(55, 62, 66, .2);
   }
   &::before{
-    left: -20px; 
+    left: 0; 
   }
   &::after{
-    right: -20px;
+    right: 0;
   }
 }
 
@@ -107,4 +107,11 @@
   &:hover{
     background-color: rgba(0, 150, 136, .8);
   }
+}
+
+@mixin button{
+  @include medium-font;
+  display: block;
+  border: 1px solid;
+  border-radius: 3px;
 }

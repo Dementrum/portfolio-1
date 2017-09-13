@@ -1,4 +1,4 @@
-.index{
+.main-content--index{
   background-color: #b6c7c1;
   background-image: url('../img/bg/bg-index.jpg');
   background-position: center;
@@ -6,11 +6,8 @@
   background-repeat: no-repeat;
 }
 
-.index__main-content{
-  position: relative;
-}
-
-.index__button{
+.index-button{
+  @include button;
   opacity: 0;
   visibility: hidden;
 
@@ -32,7 +29,7 @@
   }
 }
 
-.index__button--active{
+.index-button--active{
   z-index: 1;
   opacity: 1;
   visibility: visible;

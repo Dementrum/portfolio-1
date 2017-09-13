@@ -1,13 +1,14 @@
-include ./../helpers/_variables
-include ./../helpers/_mixins
+extends ./../layout/basic-template
 
-include ./../layout/partials/_head
+block title
   title Сайт-Портфолио
-body
-  .wrapper.index
-    main.main-content.index__main-content
-      a.button.index__button.index__button--active(href="") Авторизоваться
-      include ./../layout/partials/_index-info
-      include ./../layout/partials/_index-form
-    footer.footer.index__footer
+
+block content
+  main.main-content.main-content--index.main-content--overlay
+    a.button.index-button.index-button--active(href="") Авторизоваться
+    include ./../layout/partials/_index-info
+    include ./../layout/partials/_index-form
+
+block footer
+  footer.footer
     .copyright.index__copyright 	&copy; Глафира Чурилович | Создано с любовью в LoftSchool | 2017
