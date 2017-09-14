@@ -8,10 +8,15 @@ main(class= mainClass)
         +socials(vk.src, vk.name, vk.icon, 'header-socials')
         +socials(github.src, github.name, github.icon, 'header-socials')
         +socials(linkedin.src, linkedin.name, linkedin.icon, 'header-socials')
-      nav.header__menu.menu
-        ul.menu__list
-          +link(works.src, works.name, 'menu')
-          +link(blog.src, blog.name, 'menu')
-          +link(about.src, about.name, 'menu')
-          +link(index.src, index.name, 'menu')
+      .header__menu.hamburger
+        a.hamburger__icon.hamburger__icon--active#hamburger
+          span.hamburger__line.hamburger__line--top
+          span.hamburger__line.hamburger__line--middle
+          span.hamburger__line.hamburger__line--bottom
+        nav.hamburger__nav.hamburger__nav--active
+          ul.hamburger__list
+            +link(works.src, works.name, 'hamburger')
+            +link(blog.src, blog.name, 'hamburger')
+            +link(about.src, about.name, 'hamburger')
+            +link(index.src, index.name, 'hamburger')
     .user

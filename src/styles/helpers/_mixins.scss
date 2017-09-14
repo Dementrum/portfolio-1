@@ -55,8 +55,9 @@
   text-transform: uppercase;
   text-align: center;
   color: $font-title-main-color;
-  padding: $padding-h1;
   position: relative;
+  padding-left: 40px;
+  padding-right: 40px;
   
     &::after, &::before{
       content: '';
@@ -79,8 +80,9 @@
   text-transform: uppercase;
   text-align: center;
   color: $font-title-second-color;
-  padding: $padding-h2;
   position: relative;
+  padding-left: 40px;
+  padding-right: 40px;
 
   &::after, &::before{
     content: '';
