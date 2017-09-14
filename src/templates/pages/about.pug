@@ -1,9 +1,7 @@
 extends ./../layout/template
+
 block title
-  title Обо мне
+  title= about.name
 
-block content
-  main.main-content.main-content--overlay
-
-block header
-  div Hello
+block variables
+  - mainClass = 'main-content'

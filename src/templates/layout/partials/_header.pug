@@ -1,0 +1,17 @@
+block variables
+  -let mainClass
+
+main(class= mainClass)
+  section.hero
+    header.header
+      ul.header-socials.header__header-socials
+        +socials(vk.src, vk.name, vk.icon, 'header-socials')
+        +socials(github.src, github.name, github.icon, 'header-socials')
+        +socials(linkedin.src, linkedin.name, linkedin.icon, 'header-socials')
+      nav.header__menu.menu
+        ul.menu__list
+          +link(works.src, works.name, 'menu')
+          +link(blog.src, blog.name, 'menu')
+          +link(about.src, about.name, 'menu')
+          +link(index.src, index.name, 'menu')
+    .user
