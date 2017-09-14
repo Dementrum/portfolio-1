@@ -19,3 +19,15 @@ body{
 .main-content--overlay{
   padding-bottom: $footer-height;
 }
+
+.photo{
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.photo__img{
+  max-width: 100%;
+  object-fit: cover;
+}
