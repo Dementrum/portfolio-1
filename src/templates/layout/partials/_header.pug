@@ -5,6 +5,12 @@ block variables
 
 main(class= mainClass)
   section.hero
+    if userStyle
+      svg.decoration.decoration--main
+          use(xlink:href= svgRoot + '#portfolio_header')
+    else if blogStyle
+      svg.decoration.decoration--blog
+          use(xlink:href= svgRoot + '#blog_header')
     header.header
       ul.header-socials.header__header-socials
         +socials(vk.src, vk.name, vk.icon, 'header-socials')
@@ -22,3 +28,6 @@ main(class= mainClass)
             +link(about.src, about.name, 'hamburger')
             +link(index.src, index.name, 'hamburger')
     include ./_user
+    if userStyle
+      a.arrow.hero__arrow(title="Читайте дальше")
+        +svg(svgRoot + '#arrow_down', 'arrow')

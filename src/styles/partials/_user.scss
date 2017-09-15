@@ -11,6 +11,7 @@
 }
 
 .user{
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,4 +29,19 @@
 .user__description{
   @include light-font();
   color: $font-light-color;
+  opacity: .8;
+}
+
+.user__title{
+  @include main-heading;
+  color: $font-light-color;
+
+  &::after, &::before{
+    background-color: rgba(255, 255, 255, .2);
+  }
+}
+
+.user__description--blog{
+  @include regular-font();
+  opacity: 1;
 }
