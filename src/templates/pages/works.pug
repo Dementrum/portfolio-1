@@ -3,5 +3,10 @@ block title
   title= works.name
 
 block variables
+  - wrapperClass = 'wrapper wrapper--main'
   - mainClass = 'main-content'
   - userStyle = true
+
+block main-section
+  section.section.works
+    include ./../layout/partials/_triangles

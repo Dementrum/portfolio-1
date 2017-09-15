@@ -5,9 +5,16 @@ body{
 
 .wrapper{
   width: 100%;
-  height: 100%;
   position: relative;
   overflow: hidden;
+}
+
+.wrapper--main{
+  min-height: 100%;
+}
+
+.wrapper--index{
+  height: 100%;
 }
 
 .main-content{
@@ -30,4 +37,23 @@ body{
 .photo__img{
   max-width: 100%;
   object-fit: cover;
+}
+
+.section{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+}
+
+.triangles{
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  transform: translateY(-99%);
+
+  fill: $light;
+  width: 100%;
 }
