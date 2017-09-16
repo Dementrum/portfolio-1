@@ -62,7 +62,7 @@
     &::after, &::before{
       content: '';
       position: absolute;
-      top: 34px;
+      top: 29px;
       width: 20px;
       height: 5px;
       background-color: rgba(55, 62, 66, .2);
@@ -93,10 +93,10 @@
     background-color: rgba(55, 62, 66, .2);
   }
   &::before{
-    left: 40px;
+    left: 0px;
   }
   &::after{
-    right: 40px;
+    right: 0px;
   }
 }
 
