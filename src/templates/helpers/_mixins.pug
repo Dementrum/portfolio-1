@@ -11,3 +11,8 @@ mixin socials(href, name, icon, className)
 mixin svg(icon, className)
   svg(class=className + '__icon')
         use(xlink:href=icon)
+
+mixin circle(className)
+  svg(class="skill__circle circle" viewBox='0 0 110 110')
+    circle(class="circle__first" r="45" cx="50%" cy="50%" fill="none")
+    circle(class= className + "circle__second" r="45" cx="50%" cy="50%"  transform="rotate(-90 55 55)")
