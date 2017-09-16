@@ -16,5 +16,14 @@ block main-section
       h3.contact__title Контакты
       ul.contact__list
         li.contact__item
-          svg.contact__icon
-          .contant__info
+          +svg(svgRoot + '#skype', 'contact')
+          a.contact__link(href="skype:glasha_ch") glasha_ch
+        li.contact__item
+          +svg(svgRoot + '#envelope', 'contact')
+          a.contact__link(href="mailto:glafira.churilovich@gmail.com") glafira.churilovich@gmail.com
+        li.contact__item
+          +svg(svgRoot + '#phone', 'contact')
+          a.contact__link(href="tel:+375257123783") +375 (25) 712-37-83
+        li.contact__item
+          +svg(svgRoot + '#map_marker', 'contact')
+          a.contact__link(href="") Минск, ул. Ташкентская, 22/2
