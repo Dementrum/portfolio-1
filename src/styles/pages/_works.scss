@@ -1,0 +1,38 @@
+.works{
+  height: 100%;
+  background-color: #faf8f0;
+  .triangles{
+    fill: #faf8f0;
+  }
+}
+
+.works__title{
+  @include main-heading;
+  position: relative;
+  margin-top: 50px;
+  margin-bottom: 60px;
+}
+
+.works__decoration{
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+
+  width: 500px;
+  height: 160px;
+  fill: #6d7070;
+  fill-opacity: .06;
+}
+
+.feedback{
+  height: 100vh;
+  background-color: #dae8ee;
+  background-image: url('./../img/bg/bg-works.jpg');
+  background-position: top;
+  background-size: cover;
+
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
