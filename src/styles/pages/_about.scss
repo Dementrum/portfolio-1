@@ -33,6 +33,7 @@
 }
 
 .about-description__right{
+  z-index: 1;
   flex-grow: 1;
   width: 55%;
 }
@@ -166,6 +167,7 @@
   height: 100%;
   border-radius: 50%; 
   background-color: $light-blue;
+  opacity: .3;
 }
 
 .skill__title{
