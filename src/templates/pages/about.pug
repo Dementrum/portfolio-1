@@ -14,8 +14,8 @@ block main-section
     .about-description
       .about-description__left
         h1.about-description__main-title Обо мне
-          svg.about-description__decoration
-            use(xlink:href= svgRoot + '#about_header.svg')
+          svg.about-description__decoration(width="350" height="120")
+            use(xlink:href= svgRoot + '#about_header')
       .about-description__right
         .about-description__photo(style="background-image: url('./img/content/myphoto.jpg')")
           img.about-description__img(src="./img/content/myphoto.jpg", alt="Мое фото")

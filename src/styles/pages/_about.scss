@@ -41,12 +41,12 @@
 .about-description__decoration{
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 40%;
   transform: translate(-50%, -50%);
-  width: 350px;
-  height: 120px;
+  width: 120%;
+  height: 150%;
+  opacity: .15;
   fill: #6d7070;
-  fill-opacity: .06;
 }
 
 .about-description__main-title{

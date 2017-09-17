@@ -1,7 +1,6 @@
 extends ./../layout/template
 block title
   title= works.name
-  script(src="https://use.fontawesome.com/51b4e7e58f.js")
 
 block variables
   - wrapperClass = 'wrapper wrapper--main'
@@ -12,7 +11,7 @@ block main-section
   section.section.works
     include ./../layout/partials/_triangles
     h1.works__title Мои работы
-      svg(class='works__decoration')
+      svg(class='works__decoration' width="500" height="160")
         use(xlink:href=svgRoot + '#works_header')
   include ./../layout/partials/_slider
   section.section.feedback
@@ -54,3 +53,6 @@ block main-section
     a.feedback__arrow.arrow-up#arrowUp
       svg(class='arrow-up__icon')
         use(xlink:href=svgRoot + '#portf_arrow_up')
+
+block scripts
+  script(src="https://use.fontawesome.com/51b4e7e58f.js")
