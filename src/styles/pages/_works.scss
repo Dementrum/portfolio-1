@@ -115,8 +115,12 @@
 }
 
 .feedback__form{
+  height: 440px;
+  width: 380px;
   position: relative;
   margin-bottom: 70px;
+  border-radius: 3px;
+  overflow: hidden;
 }
 
 .blur{
@@ -125,9 +129,21 @@
   top: 0;
   width: 100%;
   height: 100%;
+  background-color: rgba(255,255,255,.15);
+  background-image: url('./../img/bg/bg-works.jpg');
+  background-repeat: no-repeat;
+  background-size: 1800px 1200px;
+  background-position: -716px -506px;
+  filter: blur(20px);
 }
 
+
 .contact-form{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -135,6 +151,7 @@
 }
 
 .contact-form__title{
+  flex-grow: 1;
   @include second-heading;
   margin-top: 30px;
   margin-bottom: 30px;

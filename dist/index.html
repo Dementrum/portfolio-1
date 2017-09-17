@@ -8,88 +8,88 @@
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon"/>
     <link rel="icon" href="./img/favicon.ico" type="image/x-icon"/>
     <title>Сайт-Портфолио</title>
+    <body>
+      <div class="wrapper wrapper--index">
+        <main class="main-content main-content--index main-content--overlay"><a class="button index-button index-button--active" href="">Авторизоваться</a>
+          <div class="welcome welcome--active">
+            <div class="info">
+              <div class="info__description">
+                <div class="info__photo photo"><img class="photo__img" src="./img/content/myphoto.jpg" alt="Мое фото"/></div>
+                <div class="info__name">Глафира Чурилович</div>
+                <div class="info__text">Личный сайт веб-разработчика</div>
+              </div>
+              <ul class="info__socials">
+                <li class="info__item"><a class="info__link" href="//vk.com/glasha_ch" title="Вконтакте" target="blank">Вконтакте
+                    <svg class="info__icon">
+                      <use xlink:href="./img/sprite.svg#vk"></use>
+                    </svg></a></li>
+                <li class="info__item"><a class="info__link" href="//github.com/glashach" title="Github" target="blank">Github
+                    <svg class="info__icon">
+                      <use xlink:href="./img/sprite.svg#github"></use>
+                    </svg></a></li>
+                <li class="info__item"><a class="info__link" href="//linkedin.com/in/glafira-churilovich" title="LinkedIn" target="blank">LinkedIn
+                    <svg class="info__icon">
+                      <use xlink:href="./img/sprite.svg#in"></use>
+                    </svg></a></li>
+              </ul>
+            </div>
+            <nav class="index-menu">
+              <ul class="index-menu__list">
+                <li class="index-menu__item"><a class="index-menu__link" href="./works.html" title="Мои работы">Мои работы</a></li>
+                <li class="index-menu__item"><a class="index-menu__link" href="./about.html" title="Обо мне">Обо мне</a></li>
+                <li class="index-menu__item"><a class="index-menu__link" href="./blog.html" title="Блог">Блог</a></li>
+              </ul>
+            </nav>
+          </div>
+          <form class="login" id="login" method="Post" action="">
+            <ul class="login__sections">
+              <li class="login__block">
+                <div class="login__title">Авторизуйтесь</div>
+              </li>
+              <li class="login__block login__block--input">
+                <svg class="login__icon">
+                  <use xlink:href="./img/sprite.svg#login"></use>
+                </svg>
+                <input class="login__input" id="username" type="text" placeholder="Логин" name="username"/>
+              </li>
+              <li class="login__block login__block--input">
+                <svg class="login__icon">
+                  <use xlink:href="./img/sprite.svg#password"></use>
+                </svg>
+                <input class="login__input" id="password" type="password" placeholder="Пароль" name="password"/>
+              </li>
+              <li class="login__block">
+                <input id="isHuman" hidden="hidden" type="checkbox" name="isHuman"/>
+                <label class="login__checkbox checkbox" for="isHuman">
+                  <svg class="checkbox__icon">
+                    <use xlink:href="./img/sprite.svg#check"></use>
+                  </svg>
+                </label><span class="login__checkbox-description">Я человек</span>
+              </li>
+              <li class="login__block login__block--radio">
+                <div class="login__question">Вы точно не робот?</div>
+                <div class="login__answer">
+                  <div class="login__answer-section">
+                    <input id="notRobot" hidden="hidden" type="radio" name="isRobot" value="yes"/>
+                    <label class="login__radio" for="notRobot"></label><span class="login__radio-description">Да</span>
+                  </div>
+                  <div class="login__answer-section">
+                    <input id="robot" hidden="hidden" type="radio" name="isRobot" value="no" checked="checked"/>
+                    <label class="login__radio" for="robot"></label><span class="login__radio-description">Не уверен</span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <div class="login__buttons">
+              <button class="login__button" type="reset">На главную</button>
+              <button class="login__button" id="loginSubmit" type="submit">Войти</button>
+            </div>
+          </form>
+        </main>
+        <footer class="footer">
+          <div class="copyright copyright--index">	&copy; Глафира Чурилович | Создано с любовью в LoftSchool | 2017</div>
+        </footer>
+      </div>
+    </body>
   </head>
 </html>
-<body>
-  <div class="wrapper wrapper--index">
-    <main class="main-content main-content--index main-content--overlay"><a class="button index-button index-button--active" href="">Авторизоваться</a>
-      <div class="welcome welcome--active">
-        <div class="info">
-          <div class="info__description">
-            <div class="info__photo photo"><img class="photo__img" src="./img/content/myphoto.jpg" alt="Мое фото"/></div>
-            <div class="info__name">Глафира Чурилович</div>
-            <div class="info__text">Личный сайт веб-разработчика</div>
-          </div>
-          <ul class="info__socials">
-            <li class="info__item"><a class="info__link" href="//vk.com/glasha_ch" title="Вконтакте" target="blank">Вконтакте
-                <svg class="info__icon">
-                  <use xlink:href="./img/sprite.svg#vk"></use>
-                </svg></a></li>
-            <li class="info__item"><a class="info__link" href="//github.com/glashach" title="Github" target="blank">Github
-                <svg class="info__icon">
-                  <use xlink:href="./img/sprite.svg#github"></use>
-                </svg></a></li>
-            <li class="info__item"><a class="info__link" href="//linkedin.com/in/glafira-churilovich" title="LinkedIn" target="blank">LinkedIn
-                <svg class="info__icon">
-                  <use xlink:href="./img/sprite.svg#in"></use>
-                </svg></a></li>
-          </ul>
-        </div>
-        <nav class="index-menu">
-          <ul class="index-menu__list">
-            <li class="index-menu__item"><a class="index-menu__link" href="./works.html" title="Мои работы">Мои работы</a></li>
-            <li class="index-menu__item"><a class="index-menu__link" href="./about.html" title="Обо мне">Обо мне</a></li>
-            <li class="index-menu__item"><a class="index-menu__link" href="./blog.html" title="Блог">Блог</a></li>
-          </ul>
-        </nav>
-      </div>
-      <form class="login" id="login" method="Post" action="">
-        <ul class="login__sections">
-          <li class="login__block">
-            <div class="login__title">Авторизуйтесь</div>
-          </li>
-          <li class="login__block login__block--input">
-            <svg class="login__icon">
-              <use xlink:href="./img/sprite.svg#login"></use>
-            </svg>
-            <input class="login__input" id="username" type="text" placeholder="Логин" name="username"/>
-          </li>
-          <li class="login__block login__block--input">
-            <svg class="login__icon">
-              <use xlink:href="./img/sprite.svg#password"></use>
-            </svg>
-            <input class="login__input" id="password" type="password" placeholder="Пароль" name="password"/>
-          </li>
-          <li class="login__block">
-            <input id="isHuman" hidden="hidden" type="checkbox" name="isHuman"/>
-            <label class="login__checkbox checkbox" for="isHuman">
-              <svg class="checkbox__icon">
-                <use xlink:href="./img/sprite.svg#check"></use>
-              </svg>
-            </label><span class="login__checkbox-description">Я человек</span>
-          </li>
-          <li class="login__block login__block--radio">
-            <div class="login__question">Вы точно не робот?</div>
-            <div class="login__answer">
-              <div class="login__answer-section">
-                <input id="notRobot" hidden="hidden" type="radio" name="isRobot" value="yes"/>
-                <label class="login__radio" for="notRobot"></label><span class="login__radio-description">Да</span>
-              </div>
-              <div class="login__answer-section">
-                <input id="robot" hidden="hidden" type="radio" name="isRobot" value="no" checked="checked"/>
-                <label class="login__radio" for="robot"></label><span class="login__radio-description">Не уверен</span>
-              </div>
-            </div>
-          </li>
-        </ul>
-        <div class="login__buttons">
-          <button class="login__button" type="reset">На главную</button>
-          <button class="login__button" id="loginSubmit" type="submit">Войти</button>
-        </div>
-      </form>
-    </main>
-    <footer class="footer">
-      <div class="copyright copyright--index">	&copy; Глафира Чурилович | Создано с любовью в LoftSchool | 2017</div>
-    </footer>
-  </div>
-</body>

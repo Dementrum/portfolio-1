@@ -3,14 +3,14 @@ include ./../helpers/_mixins
 
 include ./partials/_head
   block title
-body
-  block variables
-    -let wrapperClass
-    -let mainClass
-    -let userStyle = false
-    -let blogStyle = false
-  div(class= wrapperClass)
-    block content
-    block footer
-      
+  body
+    block variables
+      -let wrapperClass
+      -let mainClass
+      -let userStyle = false
+      -let blogStyle = false
+    div(class= wrapperClass)
+      block content
+      block footer
+        
       

@@ -46,7 +46,7 @@ const paths = {
   },
   img:{
     favicon: 'src/img/favicon.*',
-    src: ['src/img/**/*.+(jpg|png|gif)', '!src/img/favicon.*'],
+    src: ['src/img/**/*.+(jpg|png|gif|svg)', '!src/img/favicon.*', '!src/img/sprite/*.svg'],
     dest: 'dist/img/',
   },
   svg:{
