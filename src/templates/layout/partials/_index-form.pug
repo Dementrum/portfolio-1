@@ -3,15 +3,15 @@ form.login#login(method='Post' action='')
     li.login__block
       .login__title Авторизуйтесь
     li.login__block.login__block--input
-      +svg(svgRoot + '#login', 'login')
+      +svg(svgRoot + '#login', 'login', "16", "16")
       input.login__input#username(type="text" placeholder="Логин" name="username")
     li.login__block.login__block--input
-      +svg(svgRoot + '#password', 'login')
+      +svg(svgRoot + '#password', 'login', "18", "19")
       input.login__input#password(type="password" placeholder="Пароль" name="password")
     li.login__block
       input#isHuman(hidden type="checkbox", name="isHuman")
       label.login__checkbox.checkbox(for="isHuman")
-        +svg(svgRoot + '#check', 'checkbox')
+        +svg(svgRoot + '#check', 'checkbox', "12", "12")
       span.login__checkbox-description Я человек
     li.login__block.login__block--radio
       .login__question Вы точно не робот?
