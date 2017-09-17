@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon"/>
     <link rel="icon" href="./img/favicon.ico" type="image/x-icon"/>
     <title>Мои работы</title>
+    <script src="https://use.fontawesome.com/51b4e7e58f.js"></script>
   </head>
 </html>
 <body>
@@ -71,20 +72,20 @@
           </svg>
         </h2>
         <ul class="feedback__list">
-          <li class="feedback__item">
-            <blockquote class="feedback_quote">Эта девушка проходила обучение веб-разработке не где-то, а в Loftschool! 18 недель только самых тяжелых испытаний и бессоных ночей!</blockquote>
+          <li class="feedback__item"><i class="feedback__icon fa fa-quote-left fa-3x"></i>
+            <blockquote class="feedback__quote">Эта девушка проходила обучение веб-разработке не где-то, а в Loftschool! 18 недель только самых тяжелых испытаний и бессоных ночей!</blockquote>
             <div class="feedback__info">
-              <div class="feedback__photo"><img class="feedback__img" src="" alt="Дима Ковальчук"/></div>
+              <div class="feedback__photo"><img class="feedback__img" src="./img/content/dima.jpg" alt="Дима Ковальчук"/></div>
               <div class="feedback__text">
                 <div class="feedback__author">Дмитрий Ковальчук</div>
                 <div class="feedback__job">основатель LoftSchool</div>
               </div>
             </div>
           </li>
-          <li class="feedback__item">
-            <blockquote class="feedback_quote">Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах!</blockquote>
+          <li class="feedback__item"><i class="feedback__icon fa fa-quote-left fa-3x"></i>
+            <blockquote class="feedback__quote">Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах!</blockquote>
             <div class="feedback__info">
-              <div class="feedback__photo"><img class="feedback__img" src="" alt="Вова Сабанцев"/></div>
+              <div class="feedback__photo"><img class="feedback__img" src="./img/content/vova.jpg" alt="Вова Сабанцев"/></div>
               <div class="feedback__text">
                 <div class="feedback__author">Владимир Сабанцев</div>
                 <div class="feedback__job">преподаватель</div>
@@ -92,6 +93,28 @@
             </div>
           </li>
         </ul>
+        <div class="feedback__form">
+          <svg class="blur" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1000 1000">
+            <filter x="-5%" y="-5%" width="110%" height="110%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="5"></feGaussianBlur>
+            </filter>
+          </svg>
+          <form class="contact-form" id="workForm" action="" method="POST">
+            <h3 class="contact-form__title">Связаться со мной</h3>
+            <div class="contact-form__inputs">       
+              <input class="contact-form__input" id="contactName" type="text" placeholder="Имя" name="contactName" required="required"/>
+              <input class="contact-form__input" id="contactEmail" type="text" placeholder="Email" name="contactEmail" required="required"/>
+              <textarea class="contact-form__textarea" id="contactMessage" placeholder="Ваше сообщение" name="contactMessage" required="required"></textarea>
+            </div>
+            <div class="contact-form__buttons">
+              <button class="contact-form__button" id="contactSubmit" type="submit">Отправить</button>
+              <button class="contact-form__button" type="reset">Очистить</button>
+            </div>
+          </form>
+        </div><a class="feedback__arrow arrow-up" id="arrowUp">
+          <svg class="arrow-up__icon">
+            <use xlink:href="./img/sprite.svg#portf_arrow_up"></use>
+          </svg></a>
       </section>
     </main>
     <footer class="footer footer--dark-theme">
