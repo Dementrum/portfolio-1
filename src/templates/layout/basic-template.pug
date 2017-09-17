@@ -1,8 +1,10 @@
 include ./../helpers/_variables
 include ./../helpers/_mixins
 
-include ./partials/_head
-  block title
+<!DOCTYPE html>
+html(lang="en")
+  include ./partials/_head
+    block title
   body
     block variables
       -let wrapperClass
@@ -12,5 +14,5 @@ include ./partials/_head
     div(class= wrapperClass)
       block content
       block footer
-        
+          
       
