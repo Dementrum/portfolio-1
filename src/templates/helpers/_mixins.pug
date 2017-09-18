@@ -2,10 +2,10 @@ mixin link(href, name, className)
   li(class=className + '__item')
     a(href=href title=name class=className + '__link')= name
 
-mixin socials(href, name, icon, className, width, height)
+mixin socials(href, name, icon, className, width, height, modificator)
   li(class=className + '__item')
-    a(href=href title=name target="blank" class=className + '__link')= name
-      svg(width=width height=height class=className + '__icon')
+    a(href=href title=name target="blank" class=className + '__link ')= name
+      svg(width=width height=height class=className + '__icon' + ' ' +  className + '__icon--' + modificator)
         use(xlink:href=icon)
 
 mixin svg(icon, className, width, height)

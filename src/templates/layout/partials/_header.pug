@@ -4,10 +4,10 @@ main(class= mainClass)
       svg.decoration.decoration--main(width="1200" height="300")
           use(xlink:href= svgRoot + '#portfolio_header')
       header.header
-        ul.header-socials.header__header-socials
-          +socials(vk.src, vk.name, vk.icon, 'header-socials', "33", "18")
-          +socials(github.src, github.name, github.icon, 'header-socials', "30", "24")
-          +socials(linkedin.src, linkedin.name, linkedin.icon, 'header-socials', "26", "25")
+        ul.socials.header__header-socials
+          +socials(vk.src, vk.name, vk.icon, 'socials', "33", "18", 'header')
+          +socials(github.src, github.name, github.icon, 'socials', "30", "24", 'header')
+          +socials(linkedin.src, linkedin.name, linkedin.icon, 'socials', "26", "25", 'header')
         .header__menu.hamburger
           a.hamburger__icon.hamburger__icon--active#hamburger
             span.hamburger__line.hamburger__line--top
@@ -27,7 +27,7 @@ main(class= mainClass)
       svg.decoration.decoration--blog(width="300" height="250")
           use(xlink:href= svgRoot + '#blog_header')
       header.header
-        ul.header-socials.header__header-socials
+        ul.header__socials.socials
           +socials(vk.src, vk.name, vk.icon, 'header-socials')
           +socials(github.src, github.name, github.icon, 'header-socials')
           +socials(linkedin.src, linkedin.name, linkedin.icon, 'header-socials')

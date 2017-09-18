@@ -5,10 +5,10 @@
         img.photo__img(src="./img/content/myphoto.jpg", alt="Мое фото")
       .info__name Глафира Чурилович
       .info__text Личный сайт веб-разработчика
-    ul.info__socials
-      +socials(vk.src, vk.name, vk.icon, 'info', "34", "18")
-      +socials(github.src, github.name, github.icon, 'info', "30", "22")
-      +socials(linkedin.src, linkedin.name, linkedin.icon, 'info', "27", "22")
+    ul.info__socials.socials
+      +socials(vk.src, vk.name, vk.icon, 'socials', "34", "18", 'index')
+      +socials(github.src, github.name, github.icon, 'socials', "30", "22", 'index')
+      +socials(linkedin.src, linkedin.name, linkedin.icon, 'socials', "27", "22", 'index')
   nav.index-menu
     ul.index-menu__list
       +link(works.src, works.name, 'index-menu')

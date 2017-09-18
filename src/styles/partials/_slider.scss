@@ -137,3 +137,27 @@
   fill-opacity: 1;
   filter: drop-shadow(0 0 3px $dark-blue);
 }
+
+.slider-button--left:hover{
+  .slider-button__icon{
+    animation: bounceDown .5s infinite alternate cubic-bezier(0.1,0.25,0.1,1);
+  }
+}
+
+.slider-button--right:hover{
+  .slider-button__icon{
+    animation: bounceUp .5s infinite alternate ease-in-out;
+  }
+}
+
+@keyframes bounceDown{
+  100%{
+    top: 60%;
+  }
+}
+
+@keyframes bounceUp{
+  100%{
+    top: 40%;
+  }
+}
