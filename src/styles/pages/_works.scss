@@ -43,6 +43,10 @@
   margin-top: 60px;
   margin-bottom: 60px;
   width: 24%;
+
+  @include laptop{
+    width: 35%;
+  }
 }
 
 .feedback__decoration{

@@ -12,7 +12,7 @@
   visibility: hidden;
 
   position: absolute;
-  right: 100px;
+  right: 5%;
   top: 25px;
 
   padding: 10px 25px;
@@ -26,6 +26,10 @@
   &:hover{
     color: $font-accent-color;
     background-color: $light;
+  }
+
+  @include laptop{
+    right: 1.5%;
   }
 }
 

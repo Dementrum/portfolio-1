@@ -4,6 +4,9 @@
 
 .articles-menu{
   width: 25%;
+  @include laptop{
+    width: 28%;
+  }
 }
 
 .articles-menu__item{
@@ -37,6 +40,10 @@
 .articles{
   width: 75%;
   padding-left: 100px;
+  @include laptop{
+    width: 72%;
+    padding-left: 95px;
+  }
 }
 
 .articles__item{

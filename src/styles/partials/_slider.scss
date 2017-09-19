@@ -23,6 +23,10 @@
   width: 40%;
   @include second-heading;
   margin-bottom: 35px;
+  
+  @include laptop{
+    width: 65%;
+  }
 }
 
 .slider-text__skills{
