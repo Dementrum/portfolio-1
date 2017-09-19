@@ -156,4 +156,7 @@
   text-align: center;
   padding: 40px 0;
   opacity: 1;
+  @include phone{
+    padding: 5px 5px;
+  }
 }

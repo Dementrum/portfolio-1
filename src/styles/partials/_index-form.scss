@@ -42,13 +42,25 @@
   height: 45px;
   border-radius: 3px;
   background-color: #f0efe9;
+  @include tablet{
+    width: 310px;
+  }
+  @include phone{
+    width: 100%;
+  }
 }
 
 .login__icon{
-  margin: 12.5px 12.5px;
+  margin: 12.5px;
   width: 20px;
   height: 20px;
   fill: #c4cbcd;
+
+  @include phone{
+    width: 15px;
+    height: 15px;
+    margin: 10px;
+  }
 }
 
 .login__input{

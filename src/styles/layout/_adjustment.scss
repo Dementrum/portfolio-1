@@ -2,6 +2,9 @@ body{
   @include regular-font(16px, 1.5);
   color: $font-main-color;
   min-width: $phone;
+  @include phone{
+    font-size: 14px;
+  }
 }
 
 .wrapper{
