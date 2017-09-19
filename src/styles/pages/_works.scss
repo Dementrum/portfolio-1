@@ -1,0 +1,252 @@
+.works{
+  height: 100%;
+  background-color: #faf8f0;
+  .triangles{
+    fill: #faf8f0;
+  }
+}
+
+.works__title{
+  @include main-heading;
+  position: relative;
+  margin-top: 50px;
+  margin-bottom: 60px;
+}
+
+.works__decoration{
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  opacity: .15;
+
+  width: 120%;
+  height: 200%;
+  fill: #6d7070;
+}
+
+.feedback{
+  background-color: #dae8ee;
+  background-image: url('./../img/bg/bg-works.jpg');
+  background-position: top;
+  background-size: cover;
+
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-bottom: $footer-height;
+}
+
+.feedback__title{
+  @include main-heading;
+  position: relative;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  width: 24%;
+}
+
+.feedback__decoration{
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  opacity: .2;
+  
+  width: 100%;
+  height: 90%;
+  fill: #6d7070;
+}
+
+.feedback__list{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 70px;
+}
+
+.feedback__item{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 50%;
+  margin-right: 30px;
+  &:last-child{
+    margin-right: 0;
+  }
+}
+
+.feedback__info{
+  display: flex;
+  align-items: center;
+}
+
+.feedback__icon{
+  color: $dark-blue;
+  opacity: .2;
+  margin-bottom: 20px;
+}
+
+.feedback__quote{
+  margin: 0;
+  margin-bottom: 25px;
+}
+
+.feedback__photo{
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 15px;
+}
+
+.feedback__img{
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.feedback__author{
+  @include medium-font;
+  color: $font-accent-color;
+}
+
+.feedback__job{
+  color: $font-accent-color;
+}
+
+.feedback__form{
+  height: 440px;
+  width: 380px;
+  position: relative;
+  margin-bottom: 70px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.blur{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255,255,255,.15);
+  background-image: url('./../img/bg/bg-works.jpg');
+  background-repeat: no-repeat;
+  background-size: 1800px 1200px;
+  background-position: -716px -506px;
+  filter: blur(20px);
+}
+
+
+.contact-form{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 3px 3px 0  0;
+}
+
+.contact-form__title{
+  flex-grow: 1;
+  @include second-heading;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.contact-form__inputs{
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-form__input{
+  width: 340px;
+  height: 45px;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  outline: none;
+  border-radius: 3px;
+  transition: border $transition;
+
+  &:focus{
+    border: 1px solid $font-link-color;
+  }
+}
+
+.contact-form__textarea{
+  width: 340px;
+  height: 140px;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  outline: none;
+  border-radius: 3px;
+  transition: border $transition;
+  resize: none;
+
+  &:focus{
+    border: 1px solid $font-link-color;
+  }
+}
+
+.contact-form__buttons{
+  display: flex;
+  width: 100%;
+}
+
+.contact-form__button{
+  flex-grow: 1;
+  outline: none;
+  border: none;
+  display: block;
+  @include block-links;
+  color: $font-light-color;
+  text-align: center;
+  cursor: pointer;
+  
+  border-right: 2px solid $border-color;
+
+  &:first-child{
+    border-bottom-left-radius: 3px;
+  }
+  &:last-child{
+    border-right: none;
+    border-bottom-right-radius: 3px;
+  }
+  &:active{
+    outline: none;
+    color: $bg-hover-color;
+  }
+  &:focus{
+    outline: none;
+  }
+}
+
+.feedback__arrow{
+  margin-bottom: 70px;
+}
+
+.arrow-up{
+  height: 20px;
+  width: 30px;
+  opacity: .7;
+  transition: $transition;
+  cursor: pointer;
+  &:hover{
+    opacity: 1;
+  }
+}
+
+.arrow-up__icon{
+  fill: $light;
+  width: 100%;
+  height: 100%;
+}

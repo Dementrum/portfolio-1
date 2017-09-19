@@ -13,6 +13,7 @@ $light: #ffffff;
 $grey: #53595d;
 
 $error-color: $red;
+$border-color: #73c8c0;
 $font-accent-color: $light-green;
 $font-main-color: $blue;
 $font-light-color: $light;
@@ -28,6 +29,9 @@ $bg-menu-color: $light-green;
 $transition: .3s;
 
 //Padding, Margin
-$padding-h1: 70px 20px;
-$padding-h2: 40px 20px;
+$padding-h1: 70px 40px;
+$padding-h2: 40px 40px;
 
+
+//Sizes
+$footer-height: 140px;

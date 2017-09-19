@@ -3,26 +3,101 @@ body{
   color: $font-main-color;
 }
 
-a{
-  color: $font-link-color;
-  border-bottom: 1px solid $font-link-color;
-  transition: $transition;
+.wrapper{
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
 
-  &:hover{
-    border-bottom: 1px solid transparent;
+.wrapper--main{
+  min-height: 100%;
+}
+
+.wrapper--index{
+  height: 100%;
+}
+
+.main-content{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.main-content--overlay{
+  padding-bottom: $footer-height;
+}
+
+.photo{
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.photo__img{
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.section{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+}
+
+.hero--main{
+  height: 100vh;
+}
+
+.triangles{
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  transform: translateY(-99%);
+
+  fill: $light;
+  width: 100%;
+}
+
+.socials__item{
+  display: inline-block;
+  margin-right: 20px;
+  &:last-child{
+    margin-right: 0;
   }
 }
 
-h1{
-  @include accent-font(63px, 1.05);
-  text-transform: uppercase;
-  color: $font-title-main-color;
-  padding: $padding-h1;
+.socials__link{
+  display: block;
+  width: 25px;
+  height: 25px;
+  overflow: hidden;
+  text-indent: 100%;
+  position: relative;
+  transition: $transition;
+  opacity: .5;
+  &:hover{
+    opacity: 1;
+  }
 }
 
-h2{
-  @include accent-font(35px, 1.17);
-  text-transform: uppercase;
-  color: $font-title-second-color;
-  padding: $padding-h2;
+.socials__icon{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.socials__icon--index{
+  fill: $bg-main-color;
+}
+
+.socials__icon--header{
+  fill: $light;
 }

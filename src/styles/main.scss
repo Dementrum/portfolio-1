@@ -6,3 +6,20 @@
 @import "normalize";
 @import "layout/_base";
 @import "layout/_adjustment";
+
+//Pages
+@import "pages/_index";
+
+//Partials
+@import "partials/_index-info";
+@import "partials/_index-form";
+@import "partials/_header";
+@import "partials/_user";
+@import "partials/_footer";
+@import "partials/_circles";
+@import "partials/_slider";
+
+//Pages
+@import "pages/_works";
+@import "pages/_blog";
+@import "pages/_about";

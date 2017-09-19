@@ -1,0 +1,36 @@
+.main-content--index{
+  background-color: #b6c7c1;
+  background-image: url('../img/bg/bg-index.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.index-button{
+  @include button;
+  opacity: 0;
+  visibility: hidden;
+
+  position: absolute;
+  right: 100px;
+  top: 25px;
+
+  padding: 10px 25px;
+  border-color: $light;
+  color: $font-light-color;
+  background-color: transparent;
+
+  transition: all $transition;
+  cursor: pointer;
+
+  &:hover{
+    color: $font-accent-color;
+    background-color: $light;
+  }
+}
+
+.index-button--active{
+  z-index: 1;
+  opacity: 1;
+  visibility: visible;
+}

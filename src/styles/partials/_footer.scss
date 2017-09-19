@@ -1,0 +1,155 @@
+.footer{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: $footer-height;
+  overflow: hidden;
+}
+
+.footer--dark-theme{
+  background-color: rgba(55, 62, 66, .85);
+}
+
+.footer__row{
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 5px 20px;
+  overflow: hidden;
+  &:first-child{
+    border-top: none;
+  }
+}
+
+.footer-nav{
+  width: 40%;
+}
+
+.footer__footer-nav{
+  margin-right: auto;
+}
+
+.footer-nav__item{
+  display: inline-block;
+  margin-right: 30px;
+
+  &:last-child{
+    margin-right: 0;
+  }
+}
+
+.footer-nav__link{
+  @include medium-font;
+  color: $font-light-color;
+  opacity: 1;
+  transition: $transition;
+
+  &:hover{
+    opacity: .5;
+  }
+}
+
+.footer-socials{
+  width: 40%;
+  text-align: right;
+}
+
+.footer-socials__item{
+  display: inline-block;
+  margin-right: 10px;
+
+  &:last-child{
+    margin-right: 0;
+  }
+}
+
+.footer-socials__link{
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid $light;
+  background-color: transparent;
+  text-indent: 100%;
+  overflow: hidden;
+  position: relative;
+  opacity: .5;
+  transition: all $transition;
+}
+
+.footer-socials__icon{
+  position: absolute;
+  transition: all $transition;
+
+  fill: $light;
+}
+
+.footer-socials__icon--normal{
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  opacity: 1;
+}
+
+.footer-socials__icon--vk{
+  width: 21px;
+}
+
+.footer-socials__icon--github{
+  width: 21px;
+  height: 16px;
+}
+
+.footer-socials__icon--linkedin{
+  top: 47%;
+  width: 17px;
+  height: 18px;
+}
+
+.footer-socials__icon--round{
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.footer-socials__link:hover{
+  opacity: 1;
+  .footer-socials__icon--normal{
+    opacity: 0;
+  }
+  .footer-socials__icon--round{
+    opacity: 1;
+  }
+}
+
+.footer__description{
+  width: 40%;
+  @include light-font;
+  color: $font-light-color;
+  opacity: .5;
+  margin-right: auto;
+}
+
+.footer__copyright{
+  width: 40%;
+  text-align: right;
+}
+
+.copyright{
+  @include light-font;
+  color: $font-light-color;
+  opacity: .5;
+}
+
+.copyright--index{
+  text-align: center;
+  padding: 40px 0;
+  opacity: 1;
+}

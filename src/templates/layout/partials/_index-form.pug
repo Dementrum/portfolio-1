@@ -1,0 +1,29 @@
+form.login#login(method='Post' action='')
+  ul.login__sections
+    li.login__block
+      .login__title Авторизуйтесь
+    li.login__block.login__block--input
+      +svg(svgRoot + '#login', 'login', "16", "16")
+      input.login__input#username(type="text" placeholder="Логин" name="username")
+    li.login__block.login__block--input
+      +svg(svgRoot + '#password', 'login', "18", "19")
+      input.login__input#password(type="password" placeholder="Пароль" name="password")
+    li.login__block
+      input#isHuman(hidden type="checkbox", name="isHuman")
+      label.login__checkbox.checkbox(for="isHuman")
+        +svg(svgRoot + '#check', 'checkbox', "12", "12")
+      span.login__checkbox-description Я человек
+    li.login__block.login__block--radio
+      .login__question Вы точно не робот?
+      .login__answer
+        .login__answer-section
+          input#notRobot(hidden type="radio", name="isRobot" value="yes")
+          label.login__radio(for="notRobot")
+          span.login__radio-description Да
+        .login__answer-section
+          input#robot(hidden type="radio", name="isRobot" value="no" checked)
+          label.login__radio(for="robot")
+          span.login__radio-description Не уверен
+  .login__buttons
+    button.login__button(type="reset") На главную
+    button.login__button#loginSubmit(type="submit") Войти

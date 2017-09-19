@@ -1,0 +1,13 @@
+if userStyle
+  .user.hero__user.hero__user--main
+    .user__photo.photo
+      img.photo__img(src="./img/content/myphoto.jpg" alt="Мое Фото")
+    .user__name Глафира Чурилович
+    .user__description Личный сайт веб-разработчика
+
+else if blogStyle
+  .user.hero__user.hero__user--blog
+    .user__photo.photo
+      img.photo__img(src="./img/content/myphoto.jpg" alt="Мое Фото")
+    h1.user__title Блог
+    .user__description.user__description--blog Статьи, которые я написала
