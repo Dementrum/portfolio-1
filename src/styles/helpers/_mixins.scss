@@ -140,3 +140,7 @@
     @content;
   }
 }
+
+@include tablet{
+  $footer-height: 235px;
+}

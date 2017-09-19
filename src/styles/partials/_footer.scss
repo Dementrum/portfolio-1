@@ -26,6 +26,10 @@
   &:first-child{
     border-top: none;
   }
+
+  @include tablet{
+    flex-direction: column;
+  }
 }
 
 .footer-nav{
