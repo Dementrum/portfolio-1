@@ -117,3 +117,26 @@
   border: 1px solid;
   border-radius: 3px;
 }
+
+//Mediaqueries
+
+//1200-1800
+@mixin laptop{
+  @media (max-width: $screen){
+    @content;
+  }
+}
+
+//768-1200
+@mixin tablet{
+  @media (max-width: $laptop){
+    @content;
+  }
+}
+
+//320-768
+@mixin phone{
+  @media (max-width: $tablet){
+    @content;
+  }
+}
