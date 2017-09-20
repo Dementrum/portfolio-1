@@ -2,6 +2,29 @@
   @return $px / 16px+0rem;
 }
 
+//Mediaqueries
+
+//1200-1800
+@mixin laptop{
+  @media (max-width: $screen){
+    @content;
+  }
+}
+
+//768-1200
+@mixin tablet{
+  @media (max-width: $laptop){
+    @content;
+  }
+}
+
+//320-768
+@mixin phone{
+  @media (max-width: $tablet){
+    @content;
+  }
+}
+
 // Fonts
 @mixin font-family($family, $weight){
   font-family: $family;
@@ -73,6 +96,19 @@
     &::after{
       right: 0;
     }
+
+  @include tablet{
+    font-size: 49px;
+    &::after, &::before{
+      top: 22px;
+    }
+  }
+  @include phone{
+    font-size: 35px;
+    &::after, &::before{
+      top: 15px;
+    }
+  }
 }
 
 @mixin second-heading() {
@@ -98,6 +134,19 @@
   &::after{
     right: 0px;
   }
+
+  @include tablet{
+    font-size: 30px;
+    &::after, &::before{
+      top: 12.5px;
+    }
+  }
+  @include phone{
+    font-size: 21px;
+    &::after, &::before{
+      top: 8px;
+    }
+  }
 }
 
 @mixin block-links() {
@@ -116,27 +165,4 @@
   display: block;
   border: 1px solid;
   border-radius: 3px;
-}
-
-//Mediaqueries
-
-//1200-1800
-@mixin laptop{
-  @media (max-width: $screen){
-    @content;
-  }
-}
-
-//768-1200
-@mixin tablet{
-  @media (max-width: $laptop){
-    @content;
-  }
-}
-
-//320-768
-@mixin phone{
-  @media (max-width: $tablet){
-    @content;
-  }
 }

@@ -72,6 +72,11 @@ body{
 
   fill: $light;
   width: 100%;
+
+  @include tablet{
+    width: 200%;
+    left: -50%;
+  }
 }
 
 .socials__item{

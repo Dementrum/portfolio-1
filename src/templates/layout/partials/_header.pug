@@ -43,4 +43,6 @@ main(class= mainClass)
               +link(about.src, about.name, 'hamburger')
               +link(index.src, index.name, 'hamburger')
       include ./_user
+      a.arrow.hero__arrow.arrow--blog(title="Читайте дальше")
+        +svg(svgRoot + '#arrow_down', 'arrow', "27", "18")
   block main-section

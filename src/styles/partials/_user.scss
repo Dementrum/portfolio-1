@@ -19,17 +19,29 @@
 
 .user__photo{
   margin-bottom: 30px;
+  @include tablet{
+    margin-bottom: 20px;
+  }
 }
 
 .user__name{
   @include medium-font(35px, 1.2);
   color: $font-light-color;
+  @include phone{
+    font-size: 21px;
+  }
 }
 
 .user__description{
   @include light-font();
   color: $font-light-color;
   opacity: .8;
+  @include tablet{
+    font-size: 16px;
+  }
+  @include phone{
+    font-size: 14px;
+  }
 }
 
 .user__title{
