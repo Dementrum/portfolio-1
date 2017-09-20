@@ -48,6 +48,9 @@
     top: 70%;
     max-width: 35%;
   }
+  @include phone{
+    max-width: 50%;
+  }
 }
 
 .header{
