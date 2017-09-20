@@ -34,7 +34,15 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding-bottom: $footer-height;
+  padding-bottom: $footer-height-screen;
+
+  @include tablet{
+    padding-bottom: $footer-height-tablet;
+  }
+
+  @include phone{
+    padding-bottom: $footer-height-phone;
+  }
 }
 
 .feedback__title{

@@ -3,8 +3,17 @@
   left: 0;
   right: 0;
   bottom: 0;
-  height: $footer-height;
+  width: 100%;
+  height: $footer-height-screen;
   overflow: hidden;
+
+  @include tablet{
+    height: $footer-height-tablet;
+  }
+
+  @include phone{
+    height: $footer-height-phone;
+  }
 }
 
 .footer--dark-theme{
@@ -29,15 +38,34 @@
 
   @include tablet{
     flex-direction: column;
+    justify-content: center;
+  }
+  @include phone{
+    padding: 5px 5px;
+    &:first-child{
+      height: 45%;
+    }
+    &:last-child{
+      height: 65%;
+      justify-content: flex-start;
+    }
   }
 }
 
 .footer-nav{
   width: 40%;
+  @include tablet{
+    width: 100%;
+    text-align: center;
+  }
 }
 
 .footer__footer-nav{
   margin-right: auto;
+  @include tablet{
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
 }
 
 .footer-nav__item{
@@ -46,6 +74,14 @@
 
   &:last-child{
     margin-right: 0;
+  }
+
+  @include phone{
+    margin-right: 5px;
+    
+      &:last-child{
+        margin-right: 0;
+      }
   }
 }
 
@@ -58,11 +94,19 @@
   &:hover{
     opacity: .5;
   }
+
+  @include phone{
+    font-size: 13px;
+  }
 }
 
 .footer-socials{
   width: 40%;
   text-align: right;
+  @include tablet{
+    text-align: center;
+    width: auto;
+  }
 }
 
 .footer-socials__item{
@@ -71,6 +115,13 @@
 
   &:last-child{
     margin-right: 0;
+  }
+  @include phone{
+    margin-right: 5px;
+    
+      &:last-child{
+        margin-right: 0;
+      }
   }
 }
 
@@ -86,6 +137,11 @@
   position: relative;
   opacity: .5;
   transition: all $transition;
+
+  @include phone{
+    width: 35px;
+    height: 35px;
+  }
 }
 
 .footer-socials__icon{
@@ -143,17 +199,38 @@
   color: $font-light-color;
   opacity: .5;
   margin-right: auto;
+
+  @include tablet{
+    width: 95%;
+    text-align: center;
+  }
+  @include phone{
+    margin-top: 10px;
+    font-size: 13px;
+  }
 }
 
 .footer__copyright{
   width: 40%;
   text-align: right;
+
+  @include tablet{
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+  @include phone{
+    margin-top: 5px;
+  }
 }
 
 .copyright{
   @include light-font;
   color: $font-light-color;
   opacity: .5;
+  @include phone{
+    font-size: 13px;
+  }
 }
 
 .copyright--index{

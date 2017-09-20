@@ -34,11 +34,13 @@ $padding-h2: 40px 40px;
 
 
 //Sizes
-$footer-height: 140px;
+$footer-height-screen: 140px;
+$footer-height-tablet: 235px;
+$footer-height-phone: 270px;
 
 
 //Breakpoints
-$phone: 360px;
+$phone: 320px;
 $tablet: 768px;
 $laptop: 1200px;
 $screen: 1800px;

@@ -199,12 +199,20 @@
 .contact{
   padding: 30px 35px;
   background-color: rgba(255, 255, 255, .85);
-  margin-bottom: $footer-height;
+  margin-bottom: $footer-height-screen;
   border-radius: 3px;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @include tablet{
+    margin-bottom: $footer-height-tablet;
+  }
+
+  @include phone{
+    margin-bottom: $footer-height-phone;
+  }
 }
 
 .contact__title{
