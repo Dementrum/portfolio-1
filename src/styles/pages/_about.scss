@@ -32,6 +32,10 @@
   @include tablet{
     width: 61%;
   }
+  @include phone{
+    width: 100%;
+    padding: 10px;
+  }
 }
 
 .about-description__left, .about-description__right{
@@ -90,6 +94,9 @@
   @include tablet{
     margin-top: 30px;
   }
+  @include phone{
+    margin-top: 5px;
+  }
 }
 
 .about-description__photo{
@@ -106,6 +113,11 @@
   @include tablet{
     max-width: 480px;
     max-height: 480px;
+  }
+
+  @include phone{
+    max-height: 320px;
+    max-width: 320px;
   }
 }
 
@@ -138,6 +150,9 @@
   @include tablet{
     width: 100%;
   }
+  @include phone{
+    padding: 10px;
+  }
 }
 
 .skills__title{
@@ -151,6 +166,9 @@
       top: calc(50% - 2.5px);
     }
   }
+  @include phone{
+    width: 80%;
+  }
 }
 
 .skills__description{
@@ -158,6 +176,11 @@
   margin-bottom: 50px;
   @include tablet{
     width: 65%;
+  }
+  @include phone{
+    width: 100%;
+    padding: 0;
+    margin-bottom: 15px;
   }
 }
 
@@ -173,6 +196,9 @@
 
 .skills-list__item{
   margin-bottom: 30px;
+  @include phone{
+    margin-bottom: 0;
+  }
 }
 
 .skills-row{
@@ -182,6 +208,9 @@
 
   @include tablet{
     align-items: center;
+  }
+  @include phone{
+    padding: 10px 5px;
   }
 }
 
@@ -198,6 +227,11 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  @include phone{
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  }
 }
 
 .skills-row__item{
@@ -207,6 +241,13 @@
   }
   @include laptop{
     margin-right: 20px;
+    &:last-child{
+      margin-right: 0;
+    }
+  }
+  @include phone{
+    margin-left: 2px;
+    margin-right: 2px;
   }
 }
 
@@ -217,6 +258,9 @@
   @include tablet{
     width: 110px;
     height: 110px;
+  }
+  @include phone{
+    margin-bottom: 10px;
   }
 }
 
@@ -247,6 +291,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  @include phone{
+    height: auto;
+    align-items: flex-start;
+  }
 }
 
 .contact{
@@ -264,7 +312,10 @@
   }
 
   @include phone{
+    width: 100%;
+    background-color: $light;
     margin-bottom: $footer-height-phone;
+    padding: 30px 10px;
   }
 }
 
@@ -278,6 +329,12 @@
   }
   &::after{
     right: 30px;
+  }
+  @include phone{
+    margin-bottom: 15px;
+    padding-left: 60px;
+    padding-right: 60px;
+    align-self: center;
   }
 }
 
