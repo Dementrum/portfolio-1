@@ -27,10 +27,10 @@ main(class= mainClass)
       svg.decoration.decoration--blog(width="300" height="250")
           use(xlink:href= svgRoot + '#blog_header')
       header.header
-        ul.header__socials.socials
-          +socials(vk.src, vk.name, vk.icon, 'header-socials')
-          +socials(github.src, github.name, github.icon, 'header-socials')
-          +socials(linkedin.src, linkedin.name, linkedin.icon, 'header-socials')
+        ul.socials.header__header-socials
+          +socials(vk.src, vk.name, vk.icon, 'socials', "33", "18", 'header')
+          +socials(github.src, github.name, github.icon, 'socials', "30", "24", 'header')
+          +socials(linkedin.src, linkedin.name, linkedin.icon, 'socials', "26", "25", 'header')
         .header__menu.hamburger
           a.hamburger__icon.hamburger__icon--active#hamburger
             span.hamburger__line.hamburger__line--top
@@ -43,4 +43,6 @@ main(class= mainClass)
               +link(about.src, about.name, 'hamburger')
               +link(index.src, index.name, 'hamburger')
       include ./_user
+      a.arrow.hero__arrow.arrow--blog(title="Читайте дальше")
+        +svg(svgRoot + '#arrow_down', 'arrow', "27", "18")
   block main-section

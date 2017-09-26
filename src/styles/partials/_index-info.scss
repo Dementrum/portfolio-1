@@ -22,6 +22,14 @@
   background-color: rgba(252, 252, 252, .85);
   border-radius: 3px 3px 0 0;
   white-space: nowrap;
+
+  @include tablet{
+    padding: 50px 45px 35px 45px;
+  }
+
+  @include phone{
+    padding: 35px 40px;
+  }
 }
 
 .info__description{
@@ -36,6 +44,10 @@
 
 .info__name{
   @include medium-font(28px, 1.2);
+
+  @include phone{
+    font-size: 21px;
+  }
 }
 
 .info__socials{
@@ -75,4 +87,8 @@
   @include block-links;
   color: $font-light-color;
   text-align: center;
+
+  @include phone{
+    padding: 12.5px 15px;
+  }
 }

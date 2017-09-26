@@ -1,9 +1,21 @@
 .blog{
   padding: 60px;
+  @include tablet{
+    padding: 40px 20px;
+  }
+  @include phone{
+    padding: 30px 10px;
+  }
 }
 
 .articles-menu{
   width: 25%;
+  @include laptop{
+    width: 28%;
+  }
+  @include tablet{
+    display: none;
+  }
 }
 
 .articles-menu__item{
@@ -37,10 +49,41 @@
 .articles{
   width: 75%;
   padding-left: 100px;
+  @include laptop{
+    width: 72%;
+    padding-left: 95px;
+  }
+  @include tablet{
+    width: 100%;
+    padding-left: 0;
+  }
 }
 
 .articles__item{
   margin-bottom: 100px;
+  @include tablet{
+    margin-bottom: 0;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-bottom: 4px solid #f1f1f2;
+    &:first-child{
+      padding-top: 0;
+    }
+    &:last-child{
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+  }
+  @include phone{
+    padding-top: 25px;
+    padding-bottom: 25px;
+    &:first-child{
+      padding-top: 0;
+    }
+    &:last-child{
+      padding-bottom: 0;
+    }
+  }
 }
 
 .article__title{

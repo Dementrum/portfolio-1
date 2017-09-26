@@ -11,6 +11,10 @@
   position: relative;
   margin-top: 50px;
   margin-bottom: 60px;
+  @include phone{
+    margin-top: 15px;
+    margin-block-end: 30px;
+  }
 }
 
 .works__decoration{
@@ -23,6 +27,10 @@
   width: 120%;
   height: 200%;
   fill: #6d7070;
+
+  @include tablet{
+    opacity: .1;
+  }
 }
 
 .feedback{
@@ -34,7 +42,15 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding-bottom: $footer-height;
+  padding-bottom: $footer-height-screen;
+
+  @include tablet{
+    padding-bottom: $footer-height-tablet;
+  }
+
+  @include phone{
+    padding-bottom: $footer-height-phone;
+  }
 }
 
 .feedback__title{
@@ -43,6 +59,20 @@
   margin-top: 60px;
   margin-bottom: 60px;
   width: 24%;
+
+  @include laptop{
+    width: 35%;
+  }
+  @include tablet{
+    width: auto;
+    margin-bottom: 40px;
+  }
+  @include phone{
+    width: 95%;
+    &::before, &::after{
+      top: calc(50% - 2.5px);
+    }
+  }
 }
 
 .feedback__decoration{
@@ -55,6 +85,15 @@
   width: 100%;
   height: 90%;
   fill: #6d7070;
+
+  @include tablet{
+    width: 250%;
+    height: auto;
+    opacity: .1;
+  }
+  @include phone{
+    width: 100%;
+  }
 }
 
 .feedback__list{
@@ -63,6 +102,16 @@
   justify-content: center;
   align-items: flex-start;
   margin-bottom: 70px;
+
+  @include tablet{
+    width: 100%;
+    padding: 0 20px;
+    margin-bottom: 40px;
+  }
+  @include phone{
+    margin-bottom: 30px;
+    flex-direction: column;
+  }
 }
 
 .feedback__item{
@@ -75,6 +124,14 @@
   &:last-child{
     margin-right: 0;
   }
+  @include phone{
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 30px;
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
 }
 
 .feedback__info{
@@ -86,11 +143,18 @@
   color: $dark-blue;
   opacity: .2;
   margin-bottom: 20px;
+  @include phone{
+    align-self: center;
+    margin-bottom: 10px;
+  }
 }
 
 .feedback__quote{
   margin: 0;
   margin-bottom: 25px;
+  @include phone{
+    margin-bottom: 10px;
+  }
 }
 
 .feedback__photo{
@@ -122,6 +186,16 @@
   margin-bottom: 70px;
   border-radius: 3px;
   overflow: hidden;
+  @include tablet{
+    height: 420px;
+    width: 350px;
+    margin-bottom: 90px;
+  }
+  @include phone{
+    width: 300px;
+    height: 420px;
+    margin-bottom: 40px;
+  }
 }
 
 .blur{
@@ -179,6 +253,13 @@
   &:focus{
     border: 1px solid $font-link-color;
   }
+
+  @include tablet{
+    width: 310px;
+  }
+  @include phone{
+    width: 260px;
+  }
 }
 
 .contact-form__textarea{
@@ -194,6 +275,13 @@
 
   &:focus{
     border: 1px solid $font-link-color;
+  }
+
+  @include tablet{
+    width: 310px;
+  }
+  @include phone{
+    width: 260px;
   }
 }
 
@@ -232,6 +320,9 @@
 
 .feedback__arrow{
   margin-bottom: 70px;
+  @include phone{
+    margin-bottom: 40px;
+  }
 }
 
 .arrow-up{

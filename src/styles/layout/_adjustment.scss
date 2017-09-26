@@ -1,6 +1,10 @@
 body{
   @include regular-font(16px, 1.5);
   color: $font-main-color;
+  min-width: $phone;
+  @include phone{
+    font-size: 14px;
+  }
 }
 
 .wrapper{
@@ -14,6 +18,7 @@ body{
 }
 
 .wrapper--index{
+  min-height: 550px;
   height: 100%;
 }
 
@@ -24,7 +29,15 @@ body{
 }
 
 .main-content--overlay{
-  padding-bottom: $footer-height;
+  padding-bottom: $footer-height-screen;
+
+  @include tablet{
+    padding-bottom: $footer-height-tablet;
+  }
+
+  @include phone{
+    padding-bottom: $footer-height-phone;
+  }
 }
 
 .photo{
@@ -48,7 +61,13 @@ body{
 }
 
 .hero--main{
+  min-height: 550px;
   height: 100vh;
+  @include phone{
+    @media (orientation: landscape){
+      height: auto;
+    }
+  }
 }
 
 .triangles{
@@ -60,6 +79,15 @@ body{
 
   fill: $light;
   width: 100%;
+
+  @include tablet{
+    width: 200%;
+    left: -50%;
+  }
+  @include phone{
+    width: 300%;
+    left: -100%;
+  }
 }
 
 .socials__item{

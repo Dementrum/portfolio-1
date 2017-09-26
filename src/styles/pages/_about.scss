@@ -9,6 +9,12 @@
       fill: #eeebdf;
     }
   }
+
+  @include tablet{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .about-description{
@@ -19,6 +25,17 @@
 
   display: flex;
   justify-content: center;
+  @include laptop{
+    flex-direction: column;
+    align-items: center;
+  }
+  @include tablet{
+    width: 61%;
+  }
+  @include phone{
+    width: 100%;
+    padding: 10px;
+  }
 }
 
 .about-description__left, .about-description__right{
@@ -30,12 +47,25 @@
 .about-description__left{
   flex-shrink: 1;
   width: 45%;
+  @include laptop{
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  @include tablet{
+    width: 100%;
+  }
 }
 
 .about-description__right{
   z-index: 1;
   flex-grow: 1;
   width: 55%;
+  @include laptop{
+    width: 75%;
+  }
+  @include tablet{
+    width: 100%;
+  }
 }
 
 .about-description__decoration{
@@ -60,6 +90,13 @@
   &::after{
     right: 0px;
   }
+  
+  @include tablet{
+    margin-top: 30px;
+  }
+  @include phone{
+    margin-top: 5px;
+  }
 }
 
 .about-description__photo{
@@ -72,6 +109,16 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
+  @include tablet{
+    max-width: 480px;
+    max-height: 480px;
+  }
+
+  @include phone{
+    max-height: 320px;
+    max-width: 320px;
+  }
 }
 
 .about-description__img{
@@ -99,6 +146,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @include tablet{
+    width: 100%;
+  }
+  @include phone{
+    padding: 10px;
+  }
 }
 
 .skills__title{
@@ -107,50 +161,107 @@
   padding-left: 30px;
   padding-right: 30px;
   margin-bottom: 30px;
+  @include tablet{
+    &::before, &::after{
+      top: calc(50% - 2.5px);
+    }
+  }
+  @include phone{
+    width: 80%;
+  }
 }
 
 .skills__description{
   padding: 0 15px;
   margin-bottom: 50px;
+  @include tablet{
+    width: 65%;
+  }
+  @include phone{
+    width: 100%;
+    padding: 0;
+    margin-bottom: 15px;
+  }
 }
 
 .skills-list{
   width: 100%;
   padding: 0 15px;
+  @include tablet{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .skills-list__item{
   margin-bottom: 30px;
+  @include phone{
+    margin-bottom: 0;
+  }
 }
 
 .skills-row{
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
+  @include tablet{
+    align-items: center;
+  }
+  @include phone{
+    padding: 10px 5px;
+  }
 }
 
 .skills-row__title{
   @include medium-font(28px, 1.14);
   margin-bottom: 10px;
+
+  @include tablet{
+    font-size: 21px;
+  }
 }
 
 .skills-row__list{
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  @include phone{
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  }
 }
 
 .skills-row__item{
-  margin-right: 30px;
+  margin-right: 40px;
   &:last-child{
     margin-right: 0;
+  }
+  @include laptop{
+    margin-right: 20px;
+    &:last-child{
+      margin-right: 0;
+    }
+  }
+  @include phone{
+    margin-left: 2px;
+    margin-right: 2px;
   }
 }
 
 .skill{
-  width: 130px;
-  height: 130px;
+  width: 120px;
+  height: 120px;
   position: relative;
+  @include tablet{
+    width: 110px;
+    height: 110px;
+  }
+  @include phone{
+    margin-bottom: 10px;
+  }
 }
 
 .skill__circle{
@@ -165,6 +276,7 @@
   transform: translate(-50%, -50%);
   color: $font-accent-color;
   text-align: center;
+  font-size: 13px;
 }
 
 .map{
@@ -179,17 +291,32 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  @include phone{
+    height: auto;
+    align-items: flex-start;
+  }
 }
 
 .contact{
   padding: 30px 35px;
   background-color: rgba(255, 255, 255, .85);
-  margin-bottom: $footer-height;
+  margin-bottom: $footer-height-screen;
   border-radius: 3px;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @include tablet{
+    margin-bottom: $footer-height-tablet;
+  }
+
+  @include phone{
+    width: 100%;
+    background-color: $light;
+    margin-bottom: $footer-height-phone;
+    padding: 30px 10px;
+  }
 }
 
 .contact__title{
@@ -202,6 +329,12 @@
   }
   &::after{
     right: 30px;
+  }
+  @include phone{
+    margin-bottom: 15px;
+    padding-left: 60px;
+    padding-right: 60px;
+    align-self: center;
   }
 }
 
