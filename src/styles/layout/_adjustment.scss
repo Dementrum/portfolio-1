@@ -84,6 +84,10 @@ body{
     width: 200%;
     left: -50%;
   }
+  @include phone{
+    width: 300%;
+    left: -100%;
+  }
 }
 
 .socials__item{

@@ -25,6 +25,12 @@
   }
 }
 
+@mixin retina{
+  @media all and (-wekit-min-device-pixel-ratio: 1.5){
+    @content;
+  }
+}
+
 // Fonts
 @mixin font-family($family, $weight){
   font-family: $family;
