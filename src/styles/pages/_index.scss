@@ -48,3 +48,44 @@
   opacity: 1;
   visibility: visible;
 }
+
+.flip-container{
+  perspective: 1000px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.flipper{
+  transition: .6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.flip-container, .front, .back{
+  width: 380px;
+  height: 400px;
+  @include tablet {
+    width: 350px;
+  }
+  @include phone{
+    width: 300px;
+  }
+}
+
+.front, .back{
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.front{
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.back{
+  transform: rotateY(180deg);
+}

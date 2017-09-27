@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -69,6 +69,50 @@
 
 "use strict";
 
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var rotateWindow = exports.rotateWindow = {
+  flipper: document.querySelector('.flipper'),
+  rotateToLogin: function rotateToLogin() {
+    this.flipper.style.transform = 'rotateY(180deg)';
+  },
+  rotateToWelcome: function rotateToWelcome() {
+    this.flipper.style.transform = 'rotateY(0deg)';
+  }
+};
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(2);
+module.exports = __webpack_require__(0);
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _rotateWindow = __webpack_require__(0);
+
+var indexButton = document.getElementById('indexButton'),
+    rotateBackButton = document.getElementById('loginBack');
+
+if (indexButton) {
+  indexButton.onclick = function (e) {
+    e.preventDefault();
+    _rotateWindow.rotateWindow.rotateToLogin();
+  };
+  rotateBackButton.onclick = function (e) {
+    e.preventDefault();
+    _rotateWindow.rotateWindow.rotateToWelcome();
+  };
+}
 
 /***/ })
 /******/ ]);

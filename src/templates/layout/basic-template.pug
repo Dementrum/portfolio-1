@@ -14,5 +14,7 @@ html(lang="ru")
     div(class= wrapperClass)
       block content
       block footer
-    block scripts      
+    if workpage
+      script(src="https://use.fontawesome.com/51b4e7e58f.js")
+    script(src="./scripts/bundle.js")     
       
