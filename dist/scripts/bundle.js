@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -113,36 +113,6 @@ var rotateWindow = exports.rotateWindow = function (options) {
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(2);
-module.exports = __webpack_require__(0);
-
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _rotateWindow = __webpack_require__(0);
-
-var _menu = __webpack_require__(3);
-
-var indexButton = document.getElementById('indexButton'),
-    menuButton = document.getElementById('hamburger');
-
-if (indexButton) {
-  _rotateWindow.rotateWindow.init();
-}
-
-if (menuButton) {
-  _menu.menu.init();
-}
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
 "use strict";
 
 
@@ -157,25 +127,65 @@ var menu = exports.menu = function (options) {
       activeBodyClass = options.activeBodyClass,
       activeButtonClass = options.activeButtonClass;
 
+  function _showMenu(event) {
+    event.preventDefault();
+    menuButton.classList.toggle(activeButtonClass);
+    menuContainer.classList.toggle(activeMenuClass);
+    body.classList.toggle(activeBodyClass);
+  }
+
+  function _hideMenu() {
+    menuButton.classList.remove(activeButtonClass);
+    menuContainer.classList.remove(activeMenuClass);
+    body.classList.remove(activeBodyClass);
+  }
+
   function addListener() {
-    menuButton.addEventListener('click', function (event) {
-      event.preventDefault();
-      menuButton.classList.toggle(activeButtonClass);
-      menuContainer.classList.toggle(activeMenuClass);
-      body.classList.toggle(activeBodyClass);
-    });
+    menuButton.addEventListener('click', _showMenu);
+    menuContainer.addEventListener('click', _hideMenu);
   }
   return {
     init: addListener
   };
 }({
+  body: 'body',
   menuButton: 'hamburger',
   menuContainer: '.hamburger__nav',
   activeMenuClass: 'hamburger__nav--active',
   activeButtonClass: 'hamburger__icon--active',
-  activeBodyClass: 'body-active-menu',
-  body: 'body'
+  activeBodyClass: 'body-active-menu'
 });
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(3);
+__webpack_require__(1);
+module.exports = __webpack_require__(0);
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _rotateWindow = __webpack_require__(0);
+
+var _menu = __webpack_require__(1);
+
+var indexButton = document.getElementById('indexButton'),
+    menuButton = document.getElementById('hamburger');
+
+if (indexButton) {
+  _rotateWindow.rotateWindow.init();
+}
+
+if (menuButton) {
+  _menu.menu.init();
+}
 
 /***/ })
 /******/ ]);
