@@ -4,23 +4,23 @@ export let rotateWindow = (function(options) {
     loginBackButton = document.getElementById(options.loginBackButton),
     activeClass = options.activeClass;
 
-  function rotateToLogin(event) {
+  function _rotateToLogin(event) {
     event.preventDefault();
     flipper.style.transform = 'rotateY(180deg)';
     indexButton.classList.toggle(activeClass);
   }
 
-  function rotateToWelcome(event) {
+  function _rotateToWelcome() {
     flipper.style.transform = 'rotateY(0deg)';
     indexButton.classList.toggle(activeClass);
   }
 
   function addListener() {
     if (indexButton) {
-      indexButton.addEventListener('click', rotateToLogin);
+      indexButton.addEventListener('click', _rotateToLogin);
     }
     if (loginBackButton) {
-      loginBackButton.addEventListener('click', rotateToWelcome);
+      loginBackButton.addEventListener('click', _rotateToWelcome);
     }
   }
 

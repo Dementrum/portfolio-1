@@ -6,8 +6,7 @@ block variables
   - wrapperClass = 'wrapper wrapper--main'
   - mainClass = 'main-content'
   - userStyle = true
-  - workPage = true
-
+  
 block main-section
   section.section.works
     include ./../layout/partials/_triangles
@@ -23,7 +22,7 @@ block main-section
       li.feedback__item
         i.feedback__icon.fa.fa-quote-left.fa-3x
         blockquote.feedback__quote.
-          Эта девушка проходила обучение веб-разработке не где-то, а в Loftschool! 18 недель только самых тяжелых испытаний и бессоных ночей!
+          Глаша проходила обучение веб-разработке не где-то, а в Loftschool! 18 недель только самых тяжелых испытаний и бессоных ночей!
         .feedback__info
           .feedback__photo
             img.feedback__img(src="./img/content/dima.jpg" alt="Дима Ковальчук")
@@ -54,3 +53,7 @@ block main-section
     a.feedback__arrow.arrow-up#arrowUp
       svg(class='arrow-up__icon')
         use(xlink:href=svgRoot + '#portf_arrow_up')
+
+
+block moreScripts
+  script(src="https://use.fontawesome.com/51b4e7e58f.js")

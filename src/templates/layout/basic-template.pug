@@ -11,10 +11,10 @@ html(lang="ru")
       -let mainClass
       -let userStyle = false
       -let blogStyle = false
+
     div(class= wrapperClass)
       block content
       block footer
-    if workpage
-      script(src="https://use.fontawesome.com/51b4e7e58f.js")
-    script(src="./scripts/bundle.js")     
+    script(src="./scripts/bundle.js") 
+    block moreScripts  
       
