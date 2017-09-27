@@ -114,7 +114,7 @@
   }
 }
 
-.hamburger__icon--active:hover{
+.hamburger__icon--active{
   .hamburger__line--top{
     transform: rotate(45deg) scaleX(1.06);
     @include phone{
@@ -143,7 +143,7 @@
 }
 
 .hamburger__nav--active{
-  
+  left: 0;
 }
 
 .hamburger__list{
@@ -180,10 +180,6 @@
   &:hover{
     opacity: .6;
   }
-}
-
-.hamburger__icon--active:hover+.hamburger__nav--active{
-    left: 0;
 }
 
 .hero__arrow{

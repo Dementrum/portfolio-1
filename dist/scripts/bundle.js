@@ -126,11 +126,56 @@ module.exports = __webpack_require__(0);
 
 var _rotateWindow = __webpack_require__(0);
 
-var indexButton = document.getElementById('indexButton');
+var _menu = __webpack_require__(3);
+
+var indexButton = document.getElementById('indexButton'),
+    menuButton = document.getElementById('hamburger');
 
 if (indexButton) {
   _rotateWindow.rotateWindow.init();
 }
+
+if (menuButton) {
+  _menu.menu.init();
+}
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var menu = exports.menu = function (options) {
+  var menuButton = document.getElementById(options.menuButton),
+      menuContainer = document.querySelector(options.menuContainer),
+      body = document.querySelector(options.body),
+      activeMenuClass = options.activeMenuClass,
+      activeBodyClass = options.activeBodyClass,
+      activeButtonClass = options.activeButtonClass;
+
+  function addListener() {
+    menuButton.addEventListener('click', function (event) {
+      event.preventDefault();
+      menuButton.classList.toggle(activeButtonClass);
+      menuContainer.classList.toggle(activeMenuClass);
+      body.classList.toggle(activeBodyClass);
+    });
+  }
+  return {
+    init: addListener
+  };
+}({
+  menuButton: 'hamburger',
+  menuContainer: '.hamburger__nav',
+  activeMenuClass: 'hamburger__nav--active',
+  activeButtonClass: 'hamburger__icon--active',
+  activeBodyClass: 'body-active-menu',
+  body: 'body'
+});
 
 /***/ })
 /******/ ]);
