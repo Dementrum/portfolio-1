@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -160,13 +160,46 @@ var menu = exports.menu = function (options) {
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(3);
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var blur = exports.blur = function (options) {
+  var wrapper = document.querySelector(options.wrapper),
+      blurBackground = document.querySelector(options.blurBackground),
+      blur = document.querySelector(options.blur);
+  function setBlur() {
+    var imgWidth = blurBackground.offsetWidth,
+        positionLeft = -wrapper.offsetLeft,
+        positionTop = -wrapper.offsetTop,
+        blurCSS = blur.style;
+
+    blurCSS.backgroundSize = imgWidth + 'px' + ' ' + '0px';
+    blurCSS.backgroundPosition = positionLeft + 'px' + ' ' + positionTop + 'px';
+  }
+  return {
+    set: setBlur
+  };
+}({
+  wrapper: '.feedback__form',
+  blur: '.blur',
+  blurBackground: '.feedback'
+});
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(4);
+__webpack_require__(2);
 __webpack_require__(1);
 module.exports = __webpack_require__(0);
 
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -176,8 +209,11 @@ var _rotateWindow = __webpack_require__(0);
 
 var _menu = __webpack_require__(1);
 
+var _blur = __webpack_require__(2);
+
 var indexButton = document.getElementById('indexButton'),
-    menuButton = document.getElementById('hamburger');
+    menuButton = document.getElementById('hamburger'),
+    workForm = document.getElementById('workForm');
 
 if (indexButton) {
   _rotateWindow.rotateWindow.init();
@@ -185,6 +221,13 @@ if (indexButton) {
 
 if (menuButton) {
   _menu.menu.init();
+}
+
+if (workForm) {
+  _blur.blur.set();
+  window.onresize = function () {
+    _blur.blur.set();
+  };
 }
 
 /***/ })
