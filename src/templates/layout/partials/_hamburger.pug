@@ -1,0 +1,16 @@
+.header__menu.hamburger
+  a.hamburger__icon#hamburger
+    .close
+      span.close__line.close__line--top
+      span.close__line.close__line--middle
+      span.close__line.close__line--bottom
+    .open
+      span.open__line.open__line--top
+      span.open__line.open__line--bottom
+  
+  nav.hamburger__nav
+    ul.hamburger__list
+      +link(works.src, works.name, 'hamburger')
+      +link(blog.src, blog.name, 'hamburger')
+      +link(about.src, about.name, 'hamburger')
+      +link(index.src, index.name, 'hamburger')
