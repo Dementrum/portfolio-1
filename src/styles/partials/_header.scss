@@ -22,6 +22,16 @@
   }
 }
 
+.hero--main{
+  min-height: 550px;
+  height: 100vh;
+  @include phone{
+    @media (orientation: landscape){
+      height: auto;
+    }
+  }
+}
+
 .decoration{
   position: absolute;
   left: 50%;

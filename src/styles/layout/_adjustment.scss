@@ -64,16 +64,6 @@ body{
   position: relative;
 }
 
-.hero--main{
-  min-height: 550px;
-  height: 100vh;
-  @include phone{
-    @media (orientation: landscape){
-      height: auto;
-    }
-  }
-}
-
 .triangles{
   position: absolute;
   left: 0;
