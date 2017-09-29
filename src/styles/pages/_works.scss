@@ -184,8 +184,6 @@
   width: 380px;
   position: relative;
   margin-bottom: 70px;
-  border-radius: 3px;
-  overflow: hidden;
   @include tablet{
     height: 420px;
     width: 350px;
@@ -199,15 +197,21 @@
 }
 
 .blur{
-  position: absolute;
+  position: relative;
   left: 0;
   top: 0;
   width: 100%;
+  height: 100%; 
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.blur__background{
+  width: 100%;
   height: 100%;
-  background-color: rgba(255,255,255,.15);
   background-image: url('./../img/bg/bg-works.jpg');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   filter: blur(20px);
 }
 

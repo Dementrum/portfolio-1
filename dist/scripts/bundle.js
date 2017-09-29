@@ -168,24 +168,25 @@ Object.defineProperty(exports, "__esModule", {
 });
 var blur = exports.blur = function (options) {
   var wrapper = document.querySelector(options.wrapper),
-      blurBackground = document.querySelector(options.blurBackground),
+      section = document.querySelector(options.section),
       blur = document.querySelector(options.blur);
   function setBlur() {
-    var imgWidth = blurBackground.offsetWidth,
+    var imgWidth = section.offsetWidth,
+        imgHeight = section.offsetHeight,
         positionLeft = -wrapper.offsetLeft,
         positionTop = -wrapper.offsetTop,
         blurCSS = blur.style;
 
-    blurCSS.backgroundSize = imgWidth + 'px' + ' ' + '0px';
-    blurCSS.backgroundPosition = positionLeft + 'px' + ' ' + positionTop + 'px';
+    blurCSS.backgroundSize = imgWidth + 'px' + (' ' + imgHeight + 'px');
+    blurCSS.backgroundPosition = positionLeft + 'px' + (' ' + positionTop + 'px');
   }
   return {
     set: setBlur
   };
 }({
   wrapper: '.feedback__form',
-  blur: '.blur',
-  blurBackground: '.feedback'
+  blur: '.blur__background',
+  section: '.feedback'
 });
 
 /***/ }),
