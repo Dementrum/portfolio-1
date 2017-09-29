@@ -1,5 +1,6 @@
 .blog{
   padding: 60px;
+  background-color: $light;
   @include tablet{
     padding: 40px 20px;
   }

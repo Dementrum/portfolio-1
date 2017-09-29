@@ -1,6 +1,8 @@
 main(class= mainClass)
   if userStyle
     section.hero.hero--main
+      .hero__bg
+        img.hero__bg-pic(src="./img/bg/bg-index.jpg")
       svg.decoration.decoration--main(width="1200" height="300")
           use(xlink:href= svgRoot + '#portfolio_header')
       header.header
@@ -14,6 +16,8 @@ main(class= mainClass)
         +svg(svgRoot + '#arrow_down', 'arrow', "27", "18")
   else if blogStyle
     section.hero
+      .hero__bg
+        img.hero__bg-pic(src="./img/bg/bg-index.jpg")
       svg.decoration.decoration--blog(width="300" height="250")
           use(xlink:href= svgRoot + '#blog_header')
       header.header

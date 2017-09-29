@@ -210,6 +210,10 @@ var _rotateWindow = __webpack_require__(0);
 
 var _menu = __webpack_require__(1);
 
+var _parallaxScroll = __webpack_require__(5);
+
+var _parallaxMouse = __webpack_require__(6);
+
 var _blur = __webpack_require__(2);
 
 var indexButton = document.getElementById('indexButton'),
@@ -222,6 +226,10 @@ if (indexButton) {
 
 if (menuButton) {
   _menu.menu.init();
+  window.onscroll = function () {
+    var windowScroll = window.pageYOffset;
+    _parallaxScroll.parallaxScroll.init(windowScroll);
+  };
 }
 
 if (workForm) {
@@ -230,6 +238,48 @@ if (workForm) {
     _blur.blur.set();
   };
 }
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var parallaxScroll = exports.parallaxScroll = function (options) {
+  var bg = document.querySelector(options.bg);
+
+  return {
+    move: function move(block, windowScroll, strafeAmount) {
+      var strafe = windowScroll / -strafeAmount + '%';
+      var transformString = 'translate3d(0, ' + strafe + ', 0)';
+      var style = block.style;
+
+      style.transform = transformString;
+      style.webkitTransform = transformString;
+    },
+    init: function init(windowScroll) {
+      this.move(bg, windowScroll, 45);
+    }
+  };
+}({
+  bg: '.hero__bg'
+});
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var parallaxMouse = exports.parallaxMouse = function () {}();
 
 /***/ })
 /******/ ]);
