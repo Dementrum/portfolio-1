@@ -1,8 +1,6 @@
 export let skillAnimate = (function (options){
   const skillList = document.querySelectorAll(options.skillList),
     section = document.querySelector(options.section);
-  
-
   let fillSkill = function () {
     let scrollY = window.scrollY;
     let sectionTop = section.offsetTop;
@@ -25,10 +23,12 @@ export let skillAnimate = (function (options){
       }
     }
   };
-  
-  return{
-    init: window.addEventListener('scroll', fillSkill),
-  };
+   
+  if (section){
+    return{
+      init: window.addEventListener('scroll', fillSkill),
+    };
+  }
   
 })({
   skillList: '.skills-row__list',

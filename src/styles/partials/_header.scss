@@ -90,6 +90,10 @@
   }
 }
 
+.header__header-socials{
+  z-index: 2;
+}
+
 .hero__arrow{
   margin-bottom: 70px;
   @include tablet{
@@ -98,7 +102,7 @@
 }
 
 .arrow{
-  z-index: 1;
+  z-index: 2;
   align-self: center;
   display: inline-block;
   width: 30px;

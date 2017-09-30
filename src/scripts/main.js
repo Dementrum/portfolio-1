@@ -1,5 +1,6 @@
 import {rotateWindow} from './modules/rotate-window.js';
 import {menu} from './modules/menu.js';
+import {arrowScroll} from './modules/arrow-scroll.js';
 import {parallaxScroll} from './modules/parallax-scroll.js';
 import {parallaxMouse} from './modules/parallax-mouse.js';
 import {blur} from './modules/blur.js';
@@ -19,6 +20,7 @@ if (indexButton) {
 
 if (menuButton) {
   menu.init();
+  arrowScroll.down();
   window.onscroll = function() {
     let windowScroll = window.pageYOffset;
     parallaxScroll.init(windowScroll);
@@ -26,6 +28,7 @@ if (menuButton) {
 }
 
 if (workForm) {
+  arrowScroll.up();
   blur.set();
   window.onresize = function () {
     blur.set();

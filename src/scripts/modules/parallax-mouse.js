@@ -32,8 +32,6 @@ export let parallaxMouse = (function(options){
       const initialX = (feedbackSection.offsetWidth / 2) - event.pageX,
         initialY = (feedbackSection.offsetHeight / 2) - event.pageY;
 
-      console.log(initialX, initialY);
-
       [].slice.call(feedbackLayers).forEach((layer, i) => {
         const divider = i / 60,
           positionX = initialX * divider,
