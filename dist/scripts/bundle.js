@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -166,6 +166,105 @@ var menu = exports.menu = function (options) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+var parallaxScroll = exports.parallaxScroll = function (options) {
+  var bg = document.querySelector(options.bg);
+
+  return {
+    move: function move(block, windowScroll, strafeAmount) {
+      var strafe = windowScroll / -strafeAmount + '%';
+      var transformString = 'translate3d(0, ' + strafe + ', 0)';
+      var style = block.style;
+
+      style.transform = transformString;
+      style.webkitTransform = transformString;
+    },
+    init: function init(windowScroll) {
+      this.move(bg, windowScroll, 45);
+    }
+  };
+}({
+  bg: '.hero__bg'
+});
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var parallaxMouse = exports.parallaxMouse = function (options) {
+  if (document.getElementById('indexButton')) {
+    var indexContainer = document.querySelector(options.indexContainer),
+        indexLayers = indexContainer.children;
+
+    var moveLayers = function moveLayers(event) {
+      var initialX = window.innerWidth / 2 - event.pageX,
+          initialY = window.innerHeight / 2 - event.pageY;
+
+      [].slice.call(indexLayers).forEach(function (layer, i) {
+        var divider = i / 80,
+            positionX = initialX * divider,
+            positionY = initialY * divider;
+
+        var transformString = 'translate(' + positionX + 'px, ' + positionY + 'px)';
+        layer.style.transform = transformString;
+      });
+    };
+
+    var addListener = function addListener() {
+      window.addEventListener('mousemove', moveLayers);
+    };
+    return {
+      init: addListener
+    };
+  } else if (document.getElementById('workForm')) {
+    var feedbackContainer = document.querySelector(options.feedbackContainer),
+        feedbackLayers = feedbackContainer.children,
+        feedbackSection = document.querySelector(options.feedbackSection);
+
+    var _moveLayers = function _moveLayers(event) {
+      var initialX = feedbackSection.offsetWidth / 2 - event.pageX,
+          initialY = feedbackSection.offsetHeight / 2 - event.pageY;
+
+      console.log(initialX, initialY);
+
+      [].slice.call(feedbackLayers).forEach(function (layer, i) {
+        var divider = i / 60,
+            positionX = initialX * divider,
+            positionY = initialY * divider;
+
+        var transformString = 'translate(' + positionX + 'px, ' + positionY + 'px)';
+        layer.style.transform = transformString;
+      });
+    };
+
+    var _addListener = function _addListener() {
+      feedbackSection.addEventListener('mousemove', _moveLayers);
+    };
+    return {
+      init: _addListener
+    };
+  }
+}({
+  indexContainer: '.index-parallax',
+  feedbackContainer: '.feedback-parallax',
+  feedbackSection: '.feedback'
+});
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var blur = exports.blur = function (options) {
   var wrapper = document.querySelector(options.wrapper),
       section = document.querySelector(options.section),
@@ -190,17 +289,20 @@ var blur = exports.blur = function (options) {
 });
 
 /***/ }),
-/* 3 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
+__webpack_require__(6);
 __webpack_require__(4);
-__webpack_require__(2);
 __webpack_require__(1);
+__webpack_require__(7);
+__webpack_require__(3);
+__webpack_require__(2);
 module.exports = __webpack_require__(0);
 
 
 /***/ }),
-/* 4 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -210,11 +312,11 @@ var _rotateWindow = __webpack_require__(0);
 
 var _menu = __webpack_require__(1);
 
-var _parallaxScroll = __webpack_require__(5);
+var _parallaxScroll = __webpack_require__(2);
 
-var _parallaxMouse = __webpack_require__(6);
+var _parallaxMouse = __webpack_require__(3);
 
-var _blur = __webpack_require__(2);
+var _blur = __webpack_require__(4);
 
 var indexButton = document.getElementById('indexButton'),
     menuButton = document.getElementById('hamburger'),
@@ -239,47 +341,41 @@ if (workForm) {
   };
 }
 
+_parallaxMouse.parallaxMouse.init();
+
 /***/ }),
-/* 5 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+// export let parallaxFeedback = (function(options){
+//   const container = document.querySelector(options.container),
+//     layers = container.children,
+//     field = document.querySelector(options.field);
 
+//   // const moveLayers = function(event) {
+//   //   const initialX = (window.innerWidth / 2) - event.pageX,
+//   //     initialY = (window.innerHeight / 2) - event.pageY;
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var parallaxScroll = exports.parallaxScroll = function (options) {
-  var bg = document.querySelector(options.bg);
+//   //   [].slice.call(layers).forEach((layer, i) => {
+//   //     const divider = i / 80,
+//   //       positionX = initialX * divider,
+//   //       positionY = initialY * divider;
 
-  return {
-    move: function move(block, windowScroll, strafeAmount) {
-      var strafe = windowScroll / -strafeAmount + '%';
-      var transformString = 'translate3d(0, ' + strafe + ', 0)';
-      var style = block.style;
+//   //     let transformString = `translate(${positionX}px, ${positionY}px)`;
+//   //     layer.style.transform = transformString;
+//   //   });
+//   // };
 
-      style.transform = transformString;
-      style.webkitTransform = transformString;
-    },
-    init: function init(windowScroll) {
-      this.move(bg, windowScroll, 45);
-    }
-  };
-}({
-  bg: '.hero__bg'
-});
+//   return {
+//     init: window.addEventListener('mousemove', moveLayers),
+//   };
 
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
+// })({
+//   container: '.feedback-parallax',
+//   field: '.feedback',
+// });
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var parallaxMouse = exports.parallaxMouse = function () {}();
 
 /***/ })
 /******/ ]);

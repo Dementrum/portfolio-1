@@ -15,6 +15,10 @@ block main-section
         use(xlink:href=svgRoot + '#works_header')
   include ./../layout/partials/_slider
   section.section.feedback
+    .feedback-parallax
+      - for (let i = 1; i < 3; i++)
+        .feedback-parallax__layer
+          img.feedback-parallax__image(src='./img/parallax/water'+i+'.png')
     h2.feedback__title Что обо мне говорят
       svg(class='feedback__decoration')
         use(xlink:href=svgRoot + '#about_header')

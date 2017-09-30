@@ -34,8 +34,7 @@
 }
 
 .feedback{
-  background-color: #dae8ee;
-  background-image: url('./../img/bg/bg-works.jpg');
+  background-color: $light;
   background-position: top;
   background-size: cover;
 
@@ -97,6 +96,7 @@
 }
 
 .feedback__list{
+  z-index: 1;
   width: 50%;
   display: flex;
   justify-content: center;
@@ -343,4 +343,31 @@
   fill: $light;
   width: 100%;
   height: 100%;
+}
+
+.feedback-parallax{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.feedback-parallax__layer {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
+}
+
+.feedback-parallax__image {
+  position: absolute;
+  height: 110%;
+  min-width: 120%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }

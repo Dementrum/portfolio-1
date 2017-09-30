@@ -20,10 +20,11 @@ if (menuButton) {
   };
 }
 
-
 if (workForm) {
   blur.set();
   window.onresize = function () {
     blur.set();
   };
 }
+
+parallaxMouse.init();
