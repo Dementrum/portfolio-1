@@ -7,7 +7,8 @@ import {skillAnimate} from './modules/circles.js';
 
 const indexButton = document.getElementById('indexButton'),
   menuButton = document.getElementById('hamburger'),
-  workForm = document.getElementById('workForm');
+  workForm = document.getElementById('workForm'),
+  skills = document.querySelector('.skills');
 
 if (indexButton) {
   rotateWindow.init();
@@ -28,5 +29,9 @@ if (workForm) {
     blur.set();
   };
   parallaxMouse.init();
+}
+
+if (skills) {
+  skillAnimate.init;
 }
 

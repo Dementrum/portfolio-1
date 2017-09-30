@@ -299,29 +299,40 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var skillAnimate = exports.skillAnimate = function (options) {
-  var skillList = document.querySelectorAll(options.skillList);
+  var skillList = document.querySelectorAll(options.skillList),
+      section = document.querySelector(options.section);
 
-  var fillSkill = function fillSkill(event) {
-    for (var i = 0; i < skillList.length; i++) {
-      var skillItem = skillList[i].children;
-      for (var j = 0; j < skillItem.length; j++) {
-        var circle = skillItem[j].querySelector(options.circle);
-        circle.style.transitionDelay = 0.2 * j + 's';
-        skillItem[j].classList.toggle(options.activeClass);
+  var fillSkill = function fillSkill() {
+    var scrollY = window.scrollY;
+    var sectionTop = section.offsetTop;
+    var sectionHeight = section.offsetHeight;
+    if (scrollY > sectionTop + sectionHeight / 2) {
+      for (var i = 0; i < skillList.length; i++) {
+        var skillItem = skillList[i].children;
+        for (var j = 0; j < skillItem.length; j++) {
+          var circle = skillItem[j].querySelector(options.circle);
+          circle.style.transitionDelay = 0.2 * j + 's';
+          skillItem[j].classList.add(options.activeClass);
+        }
+      }
+    } else if (scrollY < sectionTop) {
+      for (var _i = 0; _i < skillList.length; _i++) {
+        var _skillItem = skillList[_i].children;
+        for (var _j = 0; _j < _skillItem.length; _j++) {
+          _skillItem[_j].classList.remove(options.activeClass);
+        }
       }
     }
-    var scrollY = window.scrollY;
-    var windowHeight = window.innerHeight;
-    var section = document.querySelector('.skills');
-    var sectionTop = section.offsetTop;
-    console.log(scrollY, windowHeight, sectionTop);
   };
 
-  window.addEventListener('click', fillSkill);
+  return {
+    init: window.addEventListener('scroll', fillSkill)
+  };
 }({
   skillList: '.skills-row__list',
   circle: '.circle__second',
-  activeClass: 'skill--active'
+  activeClass: 'skill--active',
+  section: '.skills'
 });
 
 /***/ }),
@@ -359,7 +370,8 @@ var _circles = __webpack_require__(5);
 
 var indexButton = document.getElementById('indexButton'),
     menuButton = document.getElementById('hamburger'),
-    workForm = document.getElementById('workForm');
+    workForm = document.getElementById('workForm'),
+    skills = document.querySelector('.skills');
 
 if (indexButton) {
   _rotateWindow.rotateWindow.init();
@@ -380,6 +392,10 @@ if (workForm) {
     _blur.blur.set();
   };
   _parallaxMouse.parallaxMouse.init();
+}
+
+if (skills) {
+  _circles.skillAnimate.init;
 }
 
 /***/ }),
