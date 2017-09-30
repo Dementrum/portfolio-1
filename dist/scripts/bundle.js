@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -292,17 +292,54 @@ var blur = exports.blur = function (options) {
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(6);
-__webpack_require__(4);
-__webpack_require__(1);
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var skillAnimate = exports.skillAnimate = function (options) {
+  var skillList = document.querySelectorAll(options.skillList);
+
+  var fillSkill = function fillSkill(event) {
+    for (var i = 0; i < skillList.length; i++) {
+      var skillItem = skillList[i].children;
+      for (var j = 0; j < skillItem.length; j++) {
+        var circle = skillItem[j].querySelector(options.circle);
+        circle.style.transitionDelay = 0.2 * j + 's';
+        skillItem[j].classList.toggle(options.activeClass);
+      }
+    }
+    var scrollY = window.scrollY;
+    var windowHeight = window.innerHeight;
+    var section = document.querySelector('.skills');
+    var sectionTop = section.offsetTop;
+    console.log(scrollY, windowHeight, sectionTop);
+  };
+
+  window.addEventListener('click', fillSkill);
+}({
+  skillList: '.skills-row__list',
+  circle: '.circle__second',
+  activeClass: 'skill--active'
+});
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
 __webpack_require__(7);
+__webpack_require__(4);
+__webpack_require__(5);
+__webpack_require__(1);
+__webpack_require__(8);
 __webpack_require__(3);
 __webpack_require__(2);
 module.exports = __webpack_require__(0);
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -318,12 +355,15 @@ var _parallaxMouse = __webpack_require__(3);
 
 var _blur = __webpack_require__(4);
 
+var _circles = __webpack_require__(5);
+
 var indexButton = document.getElementById('indexButton'),
     menuButton = document.getElementById('hamburger'),
     workForm = document.getElementById('workForm');
 
 if (indexButton) {
   _rotateWindow.rotateWindow.init();
+  _parallaxMouse.parallaxMouse.init();
 }
 
 if (menuButton) {
@@ -339,12 +379,11 @@ if (workForm) {
   window.onresize = function () {
     _blur.blur.set();
   };
+  _parallaxMouse.parallaxMouse.init();
 }
 
-_parallaxMouse.parallaxMouse.init();
-
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

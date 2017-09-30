@@ -3,6 +3,7 @@ import {menu} from './modules/menu.js';
 import {parallaxScroll} from './modules/parallax-scroll.js';
 import {parallaxMouse} from './modules/parallax-mouse.js';
 import {blur} from './modules/blur.js';
+import {skillAnimate} from './modules/circles.js';
 
 const indexButton = document.getElementById('indexButton'),
   menuButton = document.getElementById('hamburger'),
@@ -10,6 +11,7 @@ const indexButton = document.getElementById('indexButton'),
 
 if (indexButton) {
   rotateWindow.init();
+  parallaxMouse.init();
 }
 
 if (menuButton) {
@@ -25,6 +27,6 @@ if (workForm) {
   window.onresize = function () {
     blur.set();
   };
+  parallaxMouse.init();
 }
 
-parallaxMouse.init();
