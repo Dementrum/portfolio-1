@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -161,6 +161,43 @@ var menu = exports.menu = function (options) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function($) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var arrowScroll = exports.arrowScroll = function (options) {
+  var arrowDown = document.getElementById(options.arrowDown);
+  var arrowUp = document.getElementById(options.arrowUp);
+  return {
+    down: function down() {
+      if (arrowDown) {
+        arrowDown.addEventListener('click', function () {
+          var nextSection = arrowDown.parentNode.nextElementSibling;
+          $('html, body').animate({ scrollTop: $(nextSection).offset().top }, 1000);
+        });
+      }
+    },
+    up: function up() {
+      if (arrowUp) {
+        arrowUp.addEventListener('click', function () {
+          var previousSection = arrowUp.parentNode.previousElementSibling.previousElementSibling;
+          $('html, body').animate({ scrollTop: $(previousSection).offset().top }, 1000);
+        });
+      }
+    }
+  };
+}({
+  arrowDown: 'arrowDown',
+  arrowUp: 'arrowUp'
+});
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 
 
 Object.defineProperty(exports, "__esModule", {
@@ -187,7 +224,7 @@ var parallaxScroll = exports.parallaxScroll = function (options) {
 });
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -254,7 +291,7 @@ var parallaxMouse = exports.parallaxMouse = function (options) {
 });
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -287,7 +324,7 @@ var blur = exports.blur = function (options) {
 });
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -335,21 +372,115 @@ var skillAnimate = exports.skillAnimate = function (options) {
 });
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(7);
-__webpack_require__(4);
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var map = exports.map = function () {
+  var init = function init() {
+
+    var mapCenter = {
+      lat: 53.847750,
+      lng: 27.629020
+    };
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15,
+      center: mapCenter,
+      scrollwheel: false,
+      styles: [{
+        'featureType': 'administrative',
+        'elementType': 'labels.text.fill',
+        'stylers': [{ 'color': '#444444' }]
+      }, {
+        'featureType': 'administrative.country',
+        'elementType': 'geometry.fill',
+        'stylers': [{ 'visibility': 'off' }]
+      }, {
+        'featureType': 'landscape',
+        'elementType': 'all',
+        'stylers': [{ 'color': '#f2f2f2' }]
+      }, {
+        'featureType': 'poi',
+        'elementType': 'all',
+        'stylers': [{ 'visibility': 'off' }]
+      }, {
+        'featureType': 'road',
+        'elementType': 'all',
+        'stylers': [{ 'saturation': -100 }, { 'lightness': 45 }]
+      }, {
+        'featureType': 'road.highway',
+        'elementType': 'all',
+        'stylers': [{ 'visibility': 'simplified' }]
+      }, {
+        'featureType': 'road.arterial',
+        'elementType': 'labels.icon',
+        'stylers': [{ 'visibility': 'off' }]
+      }, {
+        'featureType': 'transit',
+        'elementType': 'all',
+        'stylers': [{ 'visibility': 'off' }]
+      }, {
+        'featureType': 'water',
+        'elementType': 'all',
+        'stylers': [{ 'color': '#1de9b6' }, { 'visibility': 'on' }]
+      }]
+    });
+
+    var logo = {
+      url: './../img/content/map_marker.svg',
+      size: new google.maps.Size(30, 45),
+      scaledSize: new google.maps.Size(30, 45)
+    };
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(53.844804, 27.633298),
+      icon: logo,
+      map: map,
+      animation: google.maps.Animation.DROP,
+      title: 'ул. Ташкентская, 22/2'
+    });
+
+    marker.addListener('click', function () {
+      infowindow.setContent('ул. Ташкентская, 22/2');
+      infowindow.open(map, marker);
+      marker.setAnimation(google.maps.Animation.BOUNCE);
+      setTimeout(function () {
+        marker.setAnimation(null);
+      }, 2100);
+    });
+  };
+
+  return {
+    init: init
+  };
+}();
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(9);
+__webpack_require__(2);
 __webpack_require__(5);
+__webpack_require__(6);
+__webpack_require__(7);
 __webpack_require__(1);
 __webpack_require__(11);
+__webpack_require__(4);
 __webpack_require__(3);
-__webpack_require__(2);
 module.exports = __webpack_require__(0);
 
 
 /***/ }),
-/* 7 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -359,17 +490,17 @@ var _rotateWindow = __webpack_require__(0);
 
 var _menu = __webpack_require__(1);
 
-var _arrowScroll = __webpack_require__(8);
+var _arrowScroll = __webpack_require__(2);
 
-var _parallaxScroll = __webpack_require__(2);
+var _parallaxScroll = __webpack_require__(3);
 
-var _parallaxMouse = __webpack_require__(3);
+var _parallaxMouse = __webpack_require__(4);
 
-var _blur = __webpack_require__(4);
+var _blur = __webpack_require__(5);
 
-var _circles = __webpack_require__(5);
+var _circles = __webpack_require__(6);
 
-var _map = __webpack_require__(10);
+var _map = __webpack_require__(7);
 
 var indexButton = document.getElementById('indexButton'),
     menuButton = document.getElementById('hamburger'),
@@ -409,44 +540,7 @@ if (mapContainer) {
 }
 
 /***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function($) {
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var arrowScroll = exports.arrowScroll = function (options) {
-  var arrowDown = document.getElementById(options.arrowDown);
-  var arrowUp = document.getElementById(options.arrowUp);
-  return {
-    down: function down() {
-      if (arrowDown) {
-        arrowDown.addEventListener('click', function () {
-          var nextSection = arrowDown.parentNode.nextElementSibling;
-          $('html, body').animate({ scrollTop: $(nextSection).offset().top }, 1000);
-        });
-      }
-    },
-    up: function up() {
-      if (arrowUp) {
-        arrowUp.addEventListener('click', function () {
-          var previousSection = arrowUp.parentNode.previousElementSibling.previousElementSibling;
-          $('html, body').animate({ scrollTop: $(previousSection).offset().top }, 1000);
-        });
-      }
-    }
-  };
-}({
-  arrowDown: 'arrowDown',
-  arrowUp: 'arrowUp'
-});
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
-
-/***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10704,98 +10798,6 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var map = exports.map = function () {
-  var init = function init() {
-
-    var mapCenter = {
-      lat: 53.847750,
-      lng: 27.629020
-    };
-
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 15,
-      center: mapCenter,
-      scrollwheel: false,
-      styles: [{
-        'featureType': 'administrative',
-        'elementType': 'labels.text.fill',
-        'stylers': [{ 'color': '#444444' }]
-      }, {
-        'featureType': 'administrative.country',
-        'elementType': 'geometry.fill',
-        'stylers': [{ 'visibility': 'off' }]
-      }, {
-        'featureType': 'landscape',
-        'elementType': 'all',
-        'stylers': [{ 'color': '#f2f2f2' }]
-      }, {
-        'featureType': 'poi',
-        'elementType': 'all',
-        'stylers': [{ 'visibility': 'off' }]
-      }, {
-        'featureType': 'road',
-        'elementType': 'all',
-        'stylers': [{ 'saturation': -100 }, { 'lightness': 45 }]
-      }, {
-        'featureType': 'road.highway',
-        'elementType': 'all',
-        'stylers': [{ 'visibility': 'simplified' }]
-      }, {
-        'featureType': 'road.arterial',
-        'elementType': 'labels.icon',
-        'stylers': [{ 'visibility': 'off' }]
-      }, {
-        'featureType': 'transit',
-        'elementType': 'all',
-        'stylers': [{ 'visibility': 'off' }]
-      }, {
-        'featureType': 'water',
-        'elementType': 'all',
-        'stylers': [{ 'color': '#1de9b6' }, { 'visibility': 'on' }]
-      }]
-    });
-
-    var logo = {
-      url: './../img/content/map_marker.svg',
-      size: new google.maps.Size(30, 45),
-      scaledSize: new google.maps.Size(30, 45)
-    };
-
-    var infowindow = new google.maps.InfoWindow();
-
-    var marker = new google.maps.Marker({
-      position: new google.maps.LatLng(53.844804, 27.633298),
-      icon: logo,
-      map: map,
-      animation: google.maps.Animation.DROP,
-      title: 'ул. Ташкентская, 22/2'
-    });
-
-    marker.addListener('click', function () {
-      infowindow.setContent('ул. Ташкентская, 22/2');
-      infowindow.open(map, marker);
-      marker.setAnimation(google.maps.Animation.BOUNCE);
-      setTimeout(function () {
-        marker.setAnimation(null);
-      }, 2100);
-    });
-  };
-
-  return {
-    init: init
-  };
-}();
 
 /***/ }),
 /* 11 */

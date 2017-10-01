@@ -28,7 +28,11 @@ const paths = {
     dest: 'dist/styles/',
   },
   scripts:{
-    src: 'src/scripts/**/*.js',
+    src: ['src/scripts/**/*.js', '!src/scripts/plugins/*.js'],
+    dest: 'dist/scripts/',
+  },
+  plugins:{
+    src: ['src/scripts/plugins/*.js'],
     dest: 'dist/scripts/',
   },
   pages:{
@@ -85,7 +89,7 @@ function styles() {
     .pipe(browserSync.stream());
 }
 
-//TODO: webpack, babel, eslint
+//Scripts
 function scripts() {
   return gulp.src(paths.scripts.src)
     .pipe(plumber())
@@ -95,6 +99,15 @@ function scripts() {
     .pipe(notify('Scripts convert successfully'))
     .pipe(plumber.stop())
     .pipe(gulp.dest(paths.scripts.dest))
+}
+
+//Plugins
+function scriptsCopy() {
+  return gulp.src(paths.plugins.src)
+    .pipe(plumber())
+    .pipe(notify('Scripts convert successfully'))
+    .pipe(plumber.stop())
+    .pipe(gulp.dest(paths.plugins.dest))
 }
 
 // Images Compression
@@ -168,6 +181,7 @@ function watch() {
   gulp.watch('src/templates/**/*.pug', pugConvert);
   gulp.watch(paths.styles.src, styles);
   gulp.watch(paths.scripts.src, scripts);
+  gulp.watch(paths.plugins.src, scriptsCopy);
   gulp.watch(paths.img.src, imageMinify);
   gulp.watch(paths.fonts.src, fontsConvert);
   gulp.watch(paths.svg.src, spriteCreate);
@@ -184,6 +198,7 @@ function serve() {
 
 exports.styles = styles;
 exports.scripts = scripts;
+exports.scriptsCopy = scriptsCopy;
 exports.clean = clean;
 exports.watch = watch;
 exports.imageMinify = imageMinify;
@@ -198,6 +213,6 @@ exports.serve = serve;
 gulp.task('default', gulp.series(
   clean,
   gulp.parallel(fontsConvert, fontsCopy, imageMinify, imageCopy, spriteCreate),
-  gulp.parallel(pugConvert, styles, scripts),
+  gulp.parallel(pugConvert, styles, scripts, scriptsCopy),
   gulp.parallel(watch, serve)
 ));
