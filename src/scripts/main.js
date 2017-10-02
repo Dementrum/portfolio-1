@@ -1,3 +1,5 @@
+/*global google*/
+
 import {rotateWindow} from './modules/rotate-window.js';
 import {menu} from './modules/menu.js';
 import {arrowScroll} from './modules/arrow-scroll.js';
@@ -6,6 +8,7 @@ import {parallaxMouse} from './modules/parallax-mouse.js';
 import {blur} from './modules/blur.js';
 import {skillAnimate} from './modules/circles.js';
 import {map} from './modules/map.js';
+import {Slider} from './modules/slider.js';
 
 const indexButton = document.getElementById('indexButton'),
   menuButton = document.getElementById('hamburger'),
@@ -34,6 +37,19 @@ if (workForm) {
     blur.set();
   };
   parallaxMouse.init();
+
+
+  let slider = new Slider($('.slider'));
+  
+  $('#sliderLeft').on('click', function (e) {
+    e.preventDefault();
+    slider.moveSlide('prev');
+  });
+  
+  $('#sliderRight').on('click', function (e) {
+    e.preventDefault();
+    slider.moveSlide('next');
+  });
 }
 
 if (skills) {

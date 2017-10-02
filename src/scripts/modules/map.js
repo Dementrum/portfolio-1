@@ -1,3 +1,5 @@
+/*global google*/
+
 export let map = (function(){
   let init = function(){
     

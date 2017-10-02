@@ -60,487 +60,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var rotateWindow = exports.rotateWindow = function (options) {
-  var flipper = document.querySelector(options.flipper),
-      indexButton = document.getElementById(options.indexButton),
-      loginBackButton = document.getElementById(options.loginBackButton),
-      activeClass = options.activeClass;
-
-  function _rotateToLogin(event) {
-    event.preventDefault();
-    flipper.style.transform = 'rotateY(180deg)';
-    indexButton.classList.toggle(activeClass);
-  }
-
-  function _rotateToWelcome() {
-    flipper.style.transform = 'rotateY(0deg)';
-    indexButton.classList.toggle(activeClass);
-  }
-
-  function addListener() {
-    if (indexButton) {
-      indexButton.addEventListener('click', _rotateToLogin);
-    }
-    if (loginBackButton) {
-      loginBackButton.addEventListener('click', _rotateToWelcome);
-    }
-  }
-
-  return {
-    init: addListener
-  };
-}({
-  flipper: '.flipper',
-  indexButton: 'indexButton',
-  loginBackButton: 'loginBack',
-  activeClass: 'index-button--active'
-});
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var menu = exports.menu = function (options) {
-  var menuButton = document.getElementById(options.menuButton),
-      menuContainer = document.querySelector(options.menuContainer),
-      body = document.querySelector(options.body),
-      activeMenuClass = options.activeMenuClass,
-      activeBodyClass = options.activeBodyClass,
-      activeButtonClass = options.activeButtonClass;
-
-  function _showMenu(event) {
-    event.preventDefault();
-    menuButton.classList.toggle(activeButtonClass);
-    menuContainer.classList.toggle(activeMenuClass);
-    body.classList.toggle(activeBodyClass);
-  }
-
-  function _hideMenu() {
-    menuButton.classList.remove(activeButtonClass);
-    menuContainer.classList.remove(activeMenuClass);
-    body.classList.remove(activeBodyClass);
-  }
-
-  function addListener() {
-    menuButton.addEventListener('click', _showMenu);
-    menuContainer.addEventListener('click', _hideMenu);
-  }
-  return {
-    init: addListener
-  };
-}({
-  body: 'body',
-  menuButton: 'hamburger',
-  menuContainer: '.hamburger__nav',
-  activeMenuClass: 'hamburger__nav--active',
-  activeButtonClass: 'hamburger__icon--active',
-  activeBodyClass: 'body-active-menu'
-});
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function($) {
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var arrowScroll = exports.arrowScroll = function (options) {
-  var arrowDown = document.getElementById(options.arrowDown);
-  var arrowUp = document.getElementById(options.arrowUp);
-  return {
-    down: function down() {
-      if (arrowDown) {
-        arrowDown.addEventListener('click', function () {
-          var nextSection = arrowDown.parentNode.nextElementSibling;
-          $('html, body').animate({ scrollTop: $(nextSection).offset().top }, 1000);
-        });
-      }
-    },
-    up: function up() {
-      if (arrowUp) {
-        arrowUp.addEventListener('click', function () {
-          var previousSection = arrowUp.parentNode.previousElementSibling.previousElementSibling;
-          $('html, body').animate({ scrollTop: $(previousSection).offset().top }, 1000);
-        });
-      }
-    }
-  };
-}({
-  arrowDown: 'arrowDown',
-  arrowUp: 'arrowUp'
-});
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var parallaxScroll = exports.parallaxScroll = function (options) {
-  var bg = document.querySelector(options.bg);
-
-  return {
-    move: function move(block, windowScroll, strafeAmount) {
-      var strafe = windowScroll / -strafeAmount + '%';
-      var transformString = 'translate3d(0, ' + strafe + ', 0)';
-      var style = block.style;
-
-      style.transform = transformString;
-      style.webkitTransform = transformString;
-    },
-    init: function init(windowScroll) {
-      this.move(bg, windowScroll, 45);
-    }
-  };
-}({
-  bg: '.hero__bg'
-});
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var parallaxMouse = exports.parallaxMouse = function (options) {
-  if (document.getElementById('indexButton')) {
-    var indexContainer = document.querySelector(options.indexContainer),
-        indexLayers = indexContainer.children;
-
-    var moveLayers = function moveLayers(event) {
-      var initialX = window.innerWidth / 2 - event.pageX,
-          initialY = window.innerHeight / 2 - event.pageY;
-
-      [].slice.call(indexLayers).forEach(function (layer, i) {
-        var divider = i / 80,
-            positionX = initialX * divider,
-            positionY = initialY * divider;
-
-        var transformString = 'translate(' + positionX + 'px, ' + positionY + 'px)';
-        layer.style.transform = transformString;
-      });
-    };
-
-    var addListener = function addListener() {
-      window.addEventListener('mousemove', moveLayers);
-    };
-    return {
-      init: addListener
-    };
-  } else if (document.getElementById('workForm')) {
-    var feedbackContainer = document.querySelector(options.feedbackContainer),
-        feedbackLayers = feedbackContainer.children,
-        feedbackSection = document.querySelector(options.feedbackSection);
-
-    var _moveLayers = function _moveLayers(event) {
-      var initialX = feedbackSection.offsetWidth / 2 - event.pageX,
-          initialY = feedbackSection.offsetHeight / 2 - event.pageY;
-
-      [].slice.call(feedbackLayers).forEach(function (layer, i) {
-        var divider = i / 60,
-            positionX = initialX * divider,
-            positionY = initialY * divider;
-
-        var transformString = 'translate(' + positionX + 'px, ' + positionY + 'px)';
-        layer.style.transform = transformString;
-      });
-    };
-
-    var _addListener = function _addListener() {
-      feedbackSection.addEventListener('mousemove', _moveLayers);
-    };
-    return {
-      init: _addListener
-    };
-  }
-}({
-  indexContainer: '.index-parallax',
-  feedbackContainer: '.feedback-parallax',
-  feedbackSection: '.feedback'
-});
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var blur = exports.blur = function (options) {
-  var wrapper = document.querySelector(options.wrapper),
-      section = document.querySelector(options.section),
-      blur = document.querySelector(options.blur);
-  function setBlur() {
-    var imgWidth = section.offsetWidth,
-        imgHeight = section.offsetHeight,
-        positionLeft = -wrapper.offsetLeft,
-        positionTop = -wrapper.offsetTop,
-        blurCSS = blur.style;
-
-    blurCSS.backgroundSize = imgWidth + 'px' + (' ' + imgHeight + 'px');
-    blurCSS.backgroundPosition = positionLeft + 'px' + (' ' + positionTop + 'px');
-  }
-  return {
-    set: setBlur
-  };
-}({
-  wrapper: '.feedback__form',
-  blur: '.blur__background',
-  section: '.feedback'
-});
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var skillAnimate = exports.skillAnimate = function (options) {
-  var skillList = document.querySelectorAll(options.skillList),
-      section = document.querySelector(options.section);
-  var fillSkill = function fillSkill() {
-    var scrollY = window.scrollY;
-    var sectionTop = section.offsetTop;
-    var sectionHeight = section.offsetHeight;
-    if (scrollY > sectionTop + sectionHeight / 2) {
-      for (var i = 0; i < skillList.length; i++) {
-        var skillItem = skillList[i].children;
-        for (var j = 0; j < skillItem.length; j++) {
-          var circle = skillItem[j].querySelector(options.circle);
-          circle.style.transitionDelay = 0.2 * j + 's';
-          skillItem[j].classList.add(options.activeClass);
-        }
-      }
-    } else if (scrollY < sectionTop) {
-      for (var _i = 0; _i < skillList.length; _i++) {
-        var _skillItem = skillList[_i].children;
-        for (var _j = 0; _j < _skillItem.length; _j++) {
-          _skillItem[_j].classList.remove(options.activeClass);
-        }
-      }
-    }
-  };
-
-  if (section) {
-    return {
-      init: window.addEventListener('scroll', fillSkill)
-    };
-  }
-}({
-  skillList: '.skills-row__list',
-  circle: '.circle__second',
-  activeClass: 'skill--active',
-  section: '.skills'
-});
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var map = exports.map = function () {
-  var init = function init() {
-
-    var mapCenter = {
-      lat: 53.847750,
-      lng: 27.629020
-    };
-
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 15,
-      center: mapCenter,
-      scrollwheel: false,
-      styles: [{
-        'featureType': 'administrative',
-        'elementType': 'labels.text.fill',
-        'stylers': [{ 'color': '#444444' }]
-      }, {
-        'featureType': 'administrative.country',
-        'elementType': 'geometry.fill',
-        'stylers': [{ 'visibility': 'off' }]
-      }, {
-        'featureType': 'landscape',
-        'elementType': 'all',
-        'stylers': [{ 'color': '#f2f2f2' }]
-      }, {
-        'featureType': 'poi',
-        'elementType': 'all',
-        'stylers': [{ 'visibility': 'off' }]
-      }, {
-        'featureType': 'road',
-        'elementType': 'all',
-        'stylers': [{ 'saturation': -100 }, { 'lightness': 45 }]
-      }, {
-        'featureType': 'road.highway',
-        'elementType': 'all',
-        'stylers': [{ 'visibility': 'simplified' }]
-      }, {
-        'featureType': 'road.arterial',
-        'elementType': 'labels.icon',
-        'stylers': [{ 'visibility': 'off' }]
-      }, {
-        'featureType': 'transit',
-        'elementType': 'all',
-        'stylers': [{ 'visibility': 'off' }]
-      }, {
-        'featureType': 'water',
-        'elementType': 'all',
-        'stylers': [{ 'color': '#1de9b6' }, { 'visibility': 'on' }]
-      }]
-    });
-
-    var logo = {
-      url: './../img/content/map_marker.svg',
-      size: new google.maps.Size(30, 45),
-      scaledSize: new google.maps.Size(30, 45)
-    };
-
-    var infowindow = new google.maps.InfoWindow();
-
-    var marker = new google.maps.Marker({
-      position: new google.maps.LatLng(53.844804, 27.633298),
-      icon: logo,
-      map: map,
-      animation: google.maps.Animation.DROP,
-      title: 'ул. Ташкентская, 22/2'
-    });
-
-    marker.addListener('click', function () {
-      infowindow.setContent('ул. Ташкентская, 22/2');
-      infowindow.open(map, marker);
-      marker.setAnimation(google.maps.Animation.BOUNCE);
-      setTimeout(function () {
-        marker.setAnimation(null);
-      }, 2100);
-    });
-  };
-
-  return {
-    init: init
-  };
-}();
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(9);
-__webpack_require__(2);
-__webpack_require__(5);
-__webpack_require__(6);
-__webpack_require__(7);
-__webpack_require__(1);
-__webpack_require__(11);
-__webpack_require__(4);
-__webpack_require__(3);
-module.exports = __webpack_require__(0);
-
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _rotateWindow = __webpack_require__(0);
-
-var _menu = __webpack_require__(1);
-
-var _arrowScroll = __webpack_require__(2);
-
-var _parallaxScroll = __webpack_require__(3);
-
-var _parallaxMouse = __webpack_require__(4);
-
-var _blur = __webpack_require__(5);
-
-var _circles = __webpack_require__(6);
-
-var _map = __webpack_require__(7);
-
-var indexButton = document.getElementById('indexButton'),
-    menuButton = document.getElementById('hamburger'),
-    workForm = document.getElementById('workForm'),
-    skills = document.querySelector('.skills'),
-    mapContainer = document.getElementById('map');
-
-if (indexButton) {
-  _rotateWindow.rotateWindow.init();
-  _parallaxMouse.parallaxMouse.init();
-}
-
-if (menuButton) {
-  _menu.menu.init();
-  _arrowScroll.arrowScroll.down();
-  window.onscroll = function () {
-    var windowScroll = window.pageYOffset;
-    _parallaxScroll.parallaxScroll.init(windowScroll);
-  };
-}
-
-if (workForm) {
-  _arrowScroll.arrowScroll.up();
-  _blur.blur.set();
-  window.onresize = function () {
-    _blur.blur.set();
-  };
-  _parallaxMouse.parallaxMouse.init();
-}
-
-if (skills) {
-  _circles.skillAnimate.init;
-}
-
-if (mapContainer) {
-  google.maps.event.addDomListener(window, 'load', _map.map.init);
-}
-
-/***/ }),
-/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10800,7 +10324,694 @@ return jQuery;
 
 
 /***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var rotateWindow = exports.rotateWindow = function (options) {
+  var flipper = document.querySelector(options.flipper),
+      indexButton = document.getElementById(options.indexButton),
+      loginBackButton = document.getElementById(options.loginBackButton),
+      activeClass = options.activeClass;
+
+  function _rotateToLogin(event) {
+    event.preventDefault();
+    flipper.style.transform = 'rotateY(180deg)';
+    indexButton.classList.toggle(activeClass);
+  }
+
+  function _rotateToWelcome() {
+    flipper.style.transform = 'rotateY(0deg)';
+    indexButton.classList.toggle(activeClass);
+  }
+
+  function addListener() {
+    if (indexButton) {
+      indexButton.addEventListener('click', _rotateToLogin);
+    }
+    if (loginBackButton) {
+      loginBackButton.addEventListener('click', _rotateToWelcome);
+    }
+  }
+
+  return {
+    init: addListener
+  };
+}({
+  flipper: '.flipper',
+  indexButton: 'indexButton',
+  loginBackButton: 'loginBack',
+  activeClass: 'index-button--active'
+});
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var menu = exports.menu = function (options) {
+  var menuButton = document.getElementById(options.menuButton),
+      menuContainer = document.querySelector(options.menuContainer),
+      body = document.querySelector(options.body),
+      activeMenuClass = options.activeMenuClass,
+      activeBodyClass = options.activeBodyClass,
+      activeButtonClass = options.activeButtonClass;
+
+  function _showMenu(event) {
+    event.preventDefault();
+    menuButton.classList.toggle(activeButtonClass);
+    menuContainer.classList.toggle(activeMenuClass);
+    body.classList.toggle(activeBodyClass);
+  }
+
+  function _hideMenu() {
+    menuButton.classList.remove(activeButtonClass);
+    menuContainer.classList.remove(activeMenuClass);
+    body.classList.remove(activeBodyClass);
+  }
+
+  function addListener() {
+    menuButton.addEventListener('click', _showMenu);
+    menuContainer.addEventListener('click', _hideMenu);
+  }
+  return {
+    init: addListener
+  };
+}({
+  body: 'body',
+  menuButton: 'hamburger',
+  menuContainer: '.hamburger__nav',
+  activeMenuClass: 'hamburger__nav--active',
+  activeButtonClass: 'hamburger__icon--active',
+  activeBodyClass: 'body-active-menu'
+});
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function($) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var arrowScroll = exports.arrowScroll = function (options) {
+  var arrowDown = document.getElementById(options.arrowDown);
+  var arrowUp = document.getElementById(options.arrowUp);
+  return {
+    down: function down() {
+      if (arrowDown) {
+        arrowDown.addEventListener('click', function () {
+          var nextSection = arrowDown.parentNode.nextElementSibling;
+          $('html, body').animate({ scrollTop: $(nextSection).offset().top }, 1000);
+        });
+      }
+    },
+    up: function up() {
+      if (arrowUp) {
+        arrowUp.addEventListener('click', function () {
+          var previousSection = arrowUp.parentNode.previousElementSibling.previousElementSibling;
+          $('html, body').animate({ scrollTop: $(previousSection).offset().top }, 1000);
+        });
+      }
+    }
+  };
+}({
+  arrowDown: 'arrowDown',
+  arrowUp: 'arrowUp'
+});
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var parallaxScroll = exports.parallaxScroll = function (options) {
+  var bg = document.querySelector(options.bg);
+
+  return {
+    move: function move(block, windowScroll, strafeAmount) {
+      var strafe = windowScroll / -strafeAmount + '%';
+      var transformString = 'translate3d(0, ' + strafe + ', 0)';
+      var style = block.style;
+
+      style.transform = transformString;
+      style.webkitTransform = transformString;
+    },
+    init: function init(windowScroll) {
+      this.move(bg, windowScroll, 45);
+    }
+  };
+}({
+  bg: '.hero__bg'
+});
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var parallaxMouse = exports.parallaxMouse = function (options) {
+  if (document.getElementById('indexButton')) {
+    var indexContainer = document.querySelector(options.indexContainer),
+        indexLayers = indexContainer.children;
+
+    var moveLayers = function moveLayers(event) {
+      var initialX = window.innerWidth / 2 - event.pageX,
+          initialY = window.innerHeight / 2 - event.pageY;
+
+      [].slice.call(indexLayers).forEach(function (layer, i) {
+        var divider = i / 80,
+            positionX = initialX * divider,
+            positionY = initialY * divider;
+
+        var transformString = 'translate(' + positionX + 'px, ' + positionY + 'px)';
+        layer.style.transform = transformString;
+      });
+    };
+
+    var addListener = function addListener() {
+      window.addEventListener('mousemove', moveLayers);
+    };
+    return {
+      init: addListener
+    };
+  } else if (document.getElementById('workForm')) {
+    var feedbackContainer = document.querySelector(options.feedbackContainer),
+        feedbackLayers = feedbackContainer.children,
+        feedbackSection = document.querySelector(options.feedbackSection);
+
+    var _moveLayers = function _moveLayers(event) {
+      var initialX = feedbackSection.offsetWidth / 2 - event.pageX,
+          initialY = feedbackSection.offsetHeight / 2 - event.pageY;
+
+      [].slice.call(feedbackLayers).forEach(function (layer, i) {
+        var divider = i / 60,
+            positionX = initialX * divider,
+            positionY = initialY * divider;
+
+        var transformString = 'translate(' + positionX + 'px, ' + positionY + 'px)';
+        layer.style.transform = transformString;
+      });
+    };
+
+    var _addListener = function _addListener() {
+      feedbackSection.addEventListener('mousemove', _moveLayers);
+    };
+    return {
+      init: _addListener
+    };
+  }
+}({
+  indexContainer: '.index-parallax',
+  feedbackContainer: '.feedback-parallax',
+  feedbackSection: '.feedback'
+});
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var blur = exports.blur = function (options) {
+  var wrapper = document.querySelector(options.wrapper),
+      section = document.querySelector(options.section),
+      blur = document.querySelector(options.blur);
+  function setBlur() {
+    var imgWidth = section.offsetWidth,
+        imgHeight = section.offsetHeight,
+        positionLeft = -wrapper.offsetLeft,
+        positionTop = -wrapper.offsetTop,
+        blurCSS = blur.style;
+
+    blurCSS.backgroundSize = imgWidth + 'px' + (' ' + imgHeight + 'px');
+    blurCSS.backgroundPosition = positionLeft + 'px' + (' ' + positionTop + 'px');
+  }
+  return {
+    set: setBlur
+  };
+}({
+  wrapper: '.feedback__form',
+  blur: '.blur__background',
+  section: '.feedback'
+});
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var skillAnimate = exports.skillAnimate = function (options) {
+  var skillList = document.querySelectorAll(options.skillList),
+      section = document.querySelector(options.section);
+  var fillSkill = function fillSkill() {
+    var scrollY = window.scrollY;
+    var sectionTop = section.offsetTop;
+    var sectionHeight = section.offsetHeight;
+    if (scrollY > sectionTop + sectionHeight / 2) {
+      for (var i = 0; i < skillList.length; i++) {
+        var skillItem = skillList[i].children;
+        for (var j = 0; j < skillItem.length; j++) {
+          var circle = skillItem[j].querySelector(options.circle);
+          circle.style.transitionDelay = 0.2 * j + 's';
+          skillItem[j].classList.add(options.activeClass);
+        }
+      }
+    } else if (scrollY < sectionTop) {
+      for (var _i = 0; _i < skillList.length; _i++) {
+        var _skillItem = skillList[_i].children;
+        for (var _j = 0; _j < _skillItem.length; _j++) {
+          _skillItem[_j].classList.remove(options.activeClass);
+        }
+      }
+    }
+  };
+
+  if (section) {
+    return {
+      init: window.addEventListener('scroll', fillSkill)
+    };
+  }
+}({
+  skillList: '.skills-row__list',
+  circle: '.circle__second',
+  activeClass: 'skill--active',
+  section: '.skills'
+});
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/*global google*/
+
+var map = exports.map = function () {
+  var init = function init() {
+
+    var mapCenter = {
+      lat: 53.847750,
+      lng: 27.629020
+    };
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15,
+      center: mapCenter,
+      scrollwheel: false,
+      styles: [{
+        'featureType': 'administrative',
+        'elementType': 'labels.text.fill',
+        'stylers': [{ 'color': '#444444' }]
+      }, {
+        'featureType': 'administrative.country',
+        'elementType': 'geometry.fill',
+        'stylers': [{ 'visibility': 'off' }]
+      }, {
+        'featureType': 'landscape',
+        'elementType': 'all',
+        'stylers': [{ 'color': '#f2f2f2' }]
+      }, {
+        'featureType': 'poi',
+        'elementType': 'all',
+        'stylers': [{ 'visibility': 'off' }]
+      }, {
+        'featureType': 'road',
+        'elementType': 'all',
+        'stylers': [{ 'saturation': -100 }, { 'lightness': 45 }]
+      }, {
+        'featureType': 'road.highway',
+        'elementType': 'all',
+        'stylers': [{ 'visibility': 'simplified' }]
+      }, {
+        'featureType': 'road.arterial',
+        'elementType': 'labels.icon',
+        'stylers': [{ 'visibility': 'off' }]
+      }, {
+        'featureType': 'transit',
+        'elementType': 'all',
+        'stylers': [{ 'visibility': 'off' }]
+      }, {
+        'featureType': 'water',
+        'elementType': 'all',
+        'stylers': [{ 'color': '#1de9b6' }, { 'visibility': 'on' }]
+      }]
+    });
+
+    var logo = {
+      url: './../img/content/map_marker.svg',
+      size: new google.maps.Size(30, 45),
+      scaledSize: new google.maps.Size(30, 45)
+    };
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(53.844804, 27.633298),
+      icon: logo,
+      map: map,
+      animation: google.maps.Animation.DROP,
+      title: 'ул. Ташкентская, 22/2'
+    });
+
+    marker.addListener('click', function () {
+      infowindow.setContent('ул. Ташкентская, 22/2');
+      infowindow.open(map, marker);
+      marker.setAnimation(google.maps.Animation.BOUNCE);
+      setTimeout(function () {
+        marker.setAnimation(null);
+      }, 2100);
+    });
+  };
+
+  return {
+    init: init
+  };
+}();
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(10);
+__webpack_require__(3);
+__webpack_require__(6);
+__webpack_require__(7);
+__webpack_require__(8);
+__webpack_require__(2);
+__webpack_require__(12);
+__webpack_require__(5);
+__webpack_require__(4);
+module.exports = __webpack_require__(1);
+
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function($) {
+
+var _rotateWindow = __webpack_require__(1);
+
+var _menu = __webpack_require__(2);
+
+var _arrowScroll = __webpack_require__(3);
+
+var _parallaxScroll = __webpack_require__(4);
+
+var _parallaxMouse = __webpack_require__(5);
+
+var _blur = __webpack_require__(6);
+
+var _circles = __webpack_require__(7);
+
+var _map = __webpack_require__(8);
+
+var _slider = __webpack_require__(11);
+
+var indexButton = document.getElementById('indexButton'),
+    menuButton = document.getElementById('hamburger'),
+    workForm = document.getElementById('workForm'),
+    skills = document.querySelector('.skills'),
+    mapContainer = document.getElementById('map'); /*global google*/
+
+if (indexButton) {
+  _rotateWindow.rotateWindow.init();
+  _parallaxMouse.parallaxMouse.init();
+}
+
+if (menuButton) {
+  _menu.menu.init();
+  _arrowScroll.arrowScroll.down();
+  window.onscroll = function () {
+    var windowScroll = window.pageYOffset;
+    _parallaxScroll.parallaxScroll.init(windowScroll);
+  };
+}
+
+if (workForm) {
+  _arrowScroll.arrowScroll.up();
+  _blur.blur.set();
+  window.onresize = function () {
+    _blur.blur.set();
+  };
+  _parallaxMouse.parallaxMouse.init();
+
+  var slider = new _slider.Slider($('.slider'));
+
+  $('#sliderLeft').on('click', function (e) {
+    e.preventDefault();
+    slider.moveSlide('prev');
+  });
+
+  $('#sliderRight').on('click', function (e) {
+    e.preventDefault();
+    slider.moveSlide('next');
+  });
+}
+
+if (skills) {
+  _circles.skillAnimate.init;
+}
+
+if (mapContainer) {
+  google.maps.event.addDomListener(window, 'load', _map.map.init);
+}
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
 /* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function($) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var aviatitle = {
+  generate: function generate(string, block) {
+    var wordsArray = string.split(' '),
+        stringArray = string.split(''),
+        sentence = [],
+        word = '';
+
+    block.text('');
+
+    wordsArray.forEach(function (currentWord) {
+      var wordsArray = currentWord.split('');
+
+      wordsArray.forEach(function (letter) {
+        var letterHtml = '<span class="letter-span">' + letter + '</span>';
+
+        word += letterHtml;
+      });
+
+      var wordHTML = '<span class="letter-word">' + word + '</span>';
+
+      sentence.push(wordHTML);
+      word = '';
+    });
+
+    block.append(sentence.join(' '));
+
+    var letters = block.find('.letter-span'),
+        duration = 500 / stringArray.length;
+
+    $.each(letters, function (item, elem) {
+      setTimeout(function () {
+        $(elem).addClass('active');
+      }, duration * item);
+    });
+  }
+};
+
+var Slider = exports.Slider = function Slider(container) {
+  var nextButton = container.find('#sliderLeft'),
+      previuosButton = container.find('#sliderRight'),
+      items = container.find('.slider-button__item'),
+      display = container.find('.slider-preview'),
+      title = container.find('.slider-text__title'),
+      skills = container.find('.slider-text__skills'),
+      link = container.find('.slider-link'),
+      itemsLength = items.length;
+  var duration = 500,
+      flag = true;
+
+  this.counter = 0;
+
+  var generateMarkups = function generateMarkups() {
+    console.log('hello');
+    var list = nextButton.find('.slider-button__list'),
+        markups = list.clone();
+
+    previuosButton.append(markups);
+  };
+
+  var getDataArrays = function getDataArrays() {
+    var dataObject = {
+      pics: [],
+      title: [],
+      skills: [],
+      link: []
+    };
+
+    $.each(items, function () {
+      var $this = $(this);
+
+      dataObject.pics.push($this.data('full'));
+      dataObject.title.push($this.data('title'));
+      dataObject.skills.push($this.data('skills'));
+      dataObject.link.push($this.data('link'));
+    });
+
+    return dataObject;
+  };
+
+  var slideInLeftBtn = function slideInLeftBtn(slide) {
+    var reqItem = items.eq(slide - 1),
+        activeItem = items.filter('.slider-active');
+
+    activeItem.stop(true, true).animate({
+      'top': '100%'
+    }, duration);
+
+    reqItem.stop(true, true).animate({
+      'top': '0%'
+    }, duration, function () {
+      $(this).addClass('slider-active').siblings().removeClass('slider-active').css('top', '-100%');
+    });
+  };
+
+  var slideInRightBtn = function slideInRightBtn(slide) {
+    var items = previuosButton.find('slider-button__item'),
+        activeItem = items.filter('.slider-active'),
+        reqSlide = slide + 1;
+
+    if (reqSlide > itemsLength - 1) {
+      reqSlide = 0;
+    }
+
+    var reqItem = items.eq(reqSlide);
+
+    activeItem.stop(true, true).animate({
+      'top': '-100%'
+    }, duration);
+
+    reqItem.stop(true, true).animate({
+      'top': '0%'
+    }, duration, function () {
+      $(this).addClass('slider-active').siblings().removeClass('slider-active').css('top', '100%');
+    });
+  };
+
+  var changeMainPicture = function changeMainPicture(slide) {
+    var image = display.find('.slider-preview__img');
+    var data = getDataArrays();
+
+    image.stop(true, true).fadeOut(duration / 2, function () {
+      image.attr('src', data.pics[slide]);
+      $(this).fadeIn(duration / 2);
+    });
+  };
+
+  var changeTextData = function changeTextData(slide) {
+    var data = getDataArrays();
+    aviatitle.generate(data.title[slide], title, 'ru');
+    aviatitle.generate(data.skills[slide], skills, 'en');
+    link.attr('href', data.link[slide]);
+  };
+
+  this.setDefaults = function () {
+    var _that = this,
+        data = getDataArrays();
+    generateMarkups();
+    nextButton.find('.slider-button__item').eq(_that.counter - 1).addClass('slider-active');
+    previuosButton.find('.slider-button__item').eq(_that.counter + 1).addClass('slider-active');
+    display.find('.slider-preview__img').attr('src', data.pics[_that.counter]);
+    changeTextData(_that.counter);
+  };
+
+  this.moveSlide = function (direction) {
+    var _that = this;
+    var directions = {
+      next: function next() {
+        if (_that.counter < itemsLength - 1) {
+          _that.counter++;
+        } else {
+          _that.counter = 0;
+        }
+      },
+      prev: function prev() {
+        if (_that.counter > 0) {
+          _that.counter--;
+        } else {
+          _that.counter = itemsLength - 1;
+        }
+      }
+    };
+
+    directions[direction]();
+
+    if (flag) {
+      flag = false;
+
+      if (typeof timeout != 'undefined') {
+        clearTimeout(timeout);
+      }
+
+      var timeout = setTimeout(function () {
+        flag = true;
+      }, duration + 50);
+
+      slideInLeftBtn(_that.counter);
+      slideInRightBtn(_that.counter);
+      changeMainPicture(_that.counter);
+      changeTextData(_that.counter);
+    }
+  };
+};
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
