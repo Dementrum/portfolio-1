@@ -39,6 +39,7 @@ block main-section
                   +circle('circle-'+skill.skill + ' ')
                   h4.skill__title #{skill.name} 
   section.map
+    #map
     .contact
       h3.contact__title Контакты
       ul.contact__list
@@ -54,3 +55,6 @@ block main-section
         li.contact__item
           +svg(svgRoot + '#map_marker', 'contact', "22", "26")
           a.contact__link(href="") Минск, ул. Ташкентская, 22/2
+
+block moreScripts
+  script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbW_g1cd6m3x376PFrtK3DgvewZaOPgts" type="text/javascript")

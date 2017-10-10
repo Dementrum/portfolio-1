@@ -13,6 +13,7 @@
     <div class="wrapper wrapper--main">
       <main class="main-content">
         <section class="hero hero--main">
+          <div class="hero__bg"><img class="hero__bg-pic" src="./img/bg/bg-index.jpg"/></div>
           <svg class="decoration decoration--main" width="1200" height="300">
             <use xlink:href="./img/sprite.svg#portfolio_header"></use>
           </svg>
@@ -31,8 +32,10 @@
                     <use xlink:href="./img/sprite.svg#in"></use>
                   </svg></a></li>
             </ul>
-            <div class="header__menu hamburger"><a class="hamburger__icon hamburger__icon--active" id="hamburger"><span class="hamburger__line hamburger__line--top"></span><span class="hamburger__line hamburger__line--middle"></span><span class="hamburger__line hamburger__line--bottom"></span></a>
-              <nav class="hamburger__nav hamburger__nav--active">
+            <div class="header__menu hamburger"><a class="hamburger__icon" id="hamburger">
+                <div class="close"><span class="close__line close__line--top"></span><span class="close__line close__line--middle"></span><span class="close__line close__line--bottom"></span></div>
+                <div class="open"><span class="open__line open__line--top"></span><span class="open__line open__line--bottom"></span></div></a>
+              <nav class="hamburger__nav">
                 <ul class="hamburger__list">
                   <li class="hamburger__item"><a class="hamburger__link" href="./works.html" title="Мои работы">Мои работы</a></li>
                   <li class="hamburger__item"><a class="hamburger__link" href="./blog.html" title="Блог">Блог</a></li>
@@ -46,7 +49,7 @@
             <div class="user__photo photo"><img class="photo__img" src="./img/content/myphoto.jpg" alt="Мое Фото"/></div>
             <div class="user__name">Глафира Чурилович</div>
             <div class="user__description">Личный сайт веб-разработчика</div>
-          </div><a class="arrow hero__arrow" title="Читайте дальше">
+          </div><a class="arrow hero__arrow" id="arrowDown" title="Читайте дальше">
             <svg class="arrow__icon" width="27" height="18">
               <use xlink:href="./img/sprite.svg#arrow_down"></use>
             </svg></a>
@@ -64,33 +67,38 @@
         </section>
         <section class="section slider">
           <div class="slider-text">
-            <h3 class="slider-text__title">Сайт школы онлайн образования</h3>
-            <div class="slider-text__skills">HTML, CSS, Javascript</div><a class="slider-text__link slider-link" href="" target="blank">
+            <h3 class="slider-text__title"></h3>
+            <div class="slider-text__skills"></div><a class="slider-text__link slider-link" href="" target="_blank">
               <svg class="slider-link__icon" width="21" height="21">
                 <use xlink:href="./img/sprite.svg#link"></use>
               </svg>
               <div class="slider-link__name">Посмотреть сайт</div></a>
           </div>
-          <div class="slider-preview"><img class="slider-preview__img" src="./img/slider/loftschool.png" alt="Работа"/></div>
+          <div class="slider-preview"><img class="slider-preview__img" src="" alt="Работа"/></div>
           <div class="slider-buttons"><a class="slider-button slider-button--left" id="sliderLeft" href="">
               <ul class="slider-button__list">
-                <li class="slider-button__item">
+                <li class="slider-button__item" data-full="./img/slider/yoga.jpg" data-title="Сайт Атма йога" data-skills="UX, design, seo" data-link="http://atmayoga.ru/">
                   <div class="slider-button__pic"><img class="slider-button__img" src="./img/slider/yoga_thumb.jpg" alt="Работа"/></div>
+                </li>
+                <li class="slider-button__item" data-full="./img/slider/loftschool.png" data-title="Агентство интернет решений ITLoft" data-skills="node" data-link="http://itloft.ru/">
+                  <div class="slider-button__pic"><img class="slider-button__img" src="./img/slider/loftschool_thumb.png" alt="Работа"/></div>
+                </li>
+                <li class="slider-button__item" data-full="./img/slider/trialog.jpg" data-title="Школа онлай-образования LoftSchool" data-skills="html5, CSS3, javascript, php">
+                  <div class="slider-button__pic"><img class="slider-button__img" src="./img/slider/trialog_thumb.jpg" alt="Работа"/></div>
                 </li>
               </ul>
               <svg class="slider-button__icon" width="45" height="30">
                 <use xlink:href="./img/sprite.svg#portf_arrow_down"></use>
               </svg></a><a class="slider-button slider-button--right" id="sliderRight" href="">
-              <ul class="slider-button__list">
-                <li class="slider-button__item">
-                  <div class="slider-button__pic"><img class="slider-button__img" src="./img/slider/trialog_thumb.jpg" alt="Работа"/></div>
-                </li>
-              </ul>
               <svg class="slider-button__icon" width="45" height="30">
                 <use xlink:href="./img/sprite.svg#portf_arrow_up"></use>
               </svg></a></div>
         </section>
         <section class="section feedback">
+          <div class="feedback-parallax">
+            <div class="feedback-parallax__layer"><img class="feedback-parallax__image" src="./img/parallax/water1.png"/></div>
+            <div class="feedback-parallax__layer"><img class="feedback-parallax__image" src="./img/parallax/water2.png"/></div>
+          </div>
           <h2 class="feedback__title">Что обо мне говорят
             <svg class="feedback__decoration">
               <use xlink:href="./img/sprite.svg#about_header"></use>
@@ -98,7 +106,7 @@
           </h2>
           <ul class="feedback__list">
             <li class="feedback__item"><i class="feedback__icon fa fa-quote-left fa-3x"></i>
-              <blockquote class="feedback__quote">Эта девушка проходила обучение веб-разработке не где-то, а в Loftschool! 18 недель только самых тяжелых испытаний и бессоных ночей!</blockquote>
+              <blockquote class="feedback__quote">Глаша проходила обучение веб-разработке не где-то, а в Loftschool! 18 недель только самых тяжелых испытаний и бессоных ночей!</blockquote>
               <div class="feedback__info">
                 <div class="feedback__photo"><img class="feedback__img" src="./img/content/dima.jpg" alt="Дима Ковальчук"/></div>
                 <div class="feedback__text">
@@ -119,7 +127,9 @@
             </li>
           </ul>
           <div class="feedback__form">
-            <div class="blur"></div>
+            <div class="blur">
+              <div class="blur__background"></div>
+            </div>
             <form class="contact-form" id="workForm" action="" method="POST">
               <h3 class="contact-form__title">Связаться со мной</h3>
               <div class="contact-form__inputs">       
@@ -182,5 +192,6 @@
       </footer>
     </div>
     <script src="https://use.fontawesome.com/51b4e7e58f.js"></script>
+    <script src="./scripts/bundle.js"> </script>
   </body>
 </html>

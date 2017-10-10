@@ -8,9 +8,17 @@ block variables
 
 block content
   main.main-content.main-content--index.main-content--overlay
-    a.button.index-button.index-button--active(href="") Авторизоваться
-    include ./../layout/partials/_index-info
-    include ./../layout/partials/_index-form
+    .index-parallax
+      - for (let i = 1; i < 11; i++)
+        .index-parallax__layer
+          img.index-parallax__image(src='./img/parallax/mountain'+i+'.png')
+    a.button.index-button.index-button--active#indexButton(href="") Авторизоваться
+    .flip-container  
+      .flipper
+        .front
+          include ./../layout/partials/_index-info
+        .back  
+          include ./../layout/partials/_index-form
 
 block footer
   footer.footer.footer--index

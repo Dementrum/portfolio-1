@@ -1,22 +1,26 @@
 section.section.slider
   .slider-text
-    h3.slider-text__title Сайт школы онлайн образования
-    .slider-text__skills HTML, CSS, Javascript
-    a.slider-text__link.slider-link(href="" target="blank")
+    h3.slider-text__title
+    .slider-text__skills
+    a.slider-text__link.slider-link(href="" target="_blank")
       +svg(svgRoot + '#link', 'slider-link', "21", "21")
       .slider-link__name Посмотреть сайт
   .slider-preview
-    img.slider-preview__img(src="./img/slider/loftschool.png", alt="Работа")
+    img.slider-preview__img(src="", alt="Работа")
   .slider-buttons
     a.slider-button.slider-button--left#sliderLeft(href='')
       ul.slider-button__list
-        li.slider-button__item
+        li.slider-button__item(data-full="./img/slider/yoga.jpg" data-title="Сайт Атма йога" data-skills="UX, design, seo" data-link="http://atmayoga.ru/")
           .slider-button__pic
             img.slider-button__img(src="./img/slider/yoga_thumb.jpg", alt="Работа")
-      +svg(svgRoot + '#portf_arrow_down', 'slider-button', "45", "30")
-    a.slider-button.slider-button--right#sliderRight(href='')
-      ul.slider-button__list
-        li.slider-button__item
+        li.slider-button__item(data-full="./img/slider/loftschool.png" data-title="Агентство интернет решений ITLoft" data-skills="node" data-link="http://itloft.ru/")
+          .slider-button__pic
+            img.slider-button__img(src="./img/slider/loftschool_thumb.png", alt="Работа")
+        li.slider-button__item(data-full="./img/slider/trialog.jpg" data-title="Школа онлай-образования LoftSchool" data-skills="html5, CSS3, javascript, php")
           .slider-button__pic
             img.slider-button__img(src="./img/slider/trialog_thumb.jpg", alt="Работа")
+      +svg(svgRoot + '#portf_arrow_down', 'slider-button', "45", "30")
+    a.slider-button.slider-button--right#sliderRight(href='')
+      
+        
       +svg(svgRoot + '#portf_arrow_up', 'slider-button', "45", "30")

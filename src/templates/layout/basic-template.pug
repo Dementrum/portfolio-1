@@ -11,8 +11,11 @@ html(lang="ru")
       -let mainClass
       -let userStyle = false
       -let blogStyle = false
+
     div(class= wrapperClass)
       block content
       block footer
-    block scripts      
+    
+    block moreScripts  
+    script(src="./scripts/bundle.js") 
       

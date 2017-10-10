@@ -1,6 +1,5 @@
 .hero{
   background-color: #b6c7c1;
-  background-image: url('../img/bg/bg-index.jpg');
   background-position: top center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -9,10 +8,13 @@
   flex-direction: column;
   justify-content: space-between;
 
+  min-height: 550px;
+
   position: relative;
   
   &::before{
     content: '';
+    z-index: 1;
     position: absolute;
     left: 0;
     top: 0;
@@ -20,6 +22,29 @@
     height: 100%;
     background-color: rgba(1, 102, 114, .3);
   }
+}
+
+.hero--main{
+  
+  height: 100vh;
+  @include phone{
+    @media (orientation: landscape){
+      height: auto;
+    }
+  }
+}
+
+.hero__bg{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero__bg-pic{
+  min-width: 100%;
+  height: 120%;
 }
 
 .decoration{
@@ -65,125 +90,8 @@
   }
 }
 
-.header__menu{
-  margin-left: auto;
-}
-
-.hamburger{
+.header__header-socials{
   z-index: 2;
-}
-
-.hamburger__icon{
-  z-index: 3;
-  display: block;
-  position: relative;
-  cursor: pointer;
-}
-
-.hamburger__line{
-  position: relative;
-  left: 0;
-  display: block;
-  height: 5px;
-  width: 40px;
-  background-color: $light;
-  border-radius: 2px;
-  opacity: 1;
-  transform-origin: left center;
-  transition: transform $transition;
-
-  @include phone{
-    width: 28px;
-    height: 3px;
-  }
-}
-
-.hamburger__line--top{
-  top: -10px;
-  @include phone{
-    top: -8px;
-  }
-}
-.hamburger__line--middle{
-  top: 0px;
-}
-.hamburger__line--bottom{
-  top: 10px;
-  @include phone{
-    top: 8px;
-  }
-}
-
-.hamburger__icon--active:hover{
-  .hamburger__line--top{
-    transform: rotate(45deg) scaleX(1.06);
-    @include phone{
-      transform: rotate(45deg) scaleX(1.11);
-    }
-  }
-  .hamburger__line--middle{
-    opacity: 0;
-  }
-  .hamburger__line--bottom{
-    transform: rotate(-45deg) scaleX(1.06);
-    @include phone{
-      transform: rotate(-45deg) scaleX(1.11);
-    }
-  }
-  
-}
-
-.hamburger__nav{
-  z-index: 1;
-  position: absolute;
-  top: 0;
-  left: 120%;
-  width: 100%;
-  transition: left $transition;
-}
-
-.hamburger__nav--active{
-  
-}
-
-.hamburger__list{
-  padding-top: 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  height: 100vh;
-
-  background-color: rgba(0, 191, 165, .87);
-
-  @include tablet{
-    justify-content: center;
-  }
-}
-
-.hamburger__item{
-  margin-bottom: 50px;
-  &:last-child{
-    margin-bottom: 0px;
-  }
-}
-
-.hamburger__link{
-  display: block;
-  width: 100%;
-  @include main-heading;
-  color: $font-light-color;
-  transition: $transition;
-  &::after, &::before{
-    background-color: rgba(255, 255, 255, .2);
-  }
-  &:hover{
-    opacity: .6;
-  }
-}
-
-.hamburger__icon--active:hover+.hamburger__nav--active{
-    left: 0;
 }
 
 .hero__arrow{
@@ -194,7 +102,7 @@
 }
 
 .arrow{
-  z-index: 1;
+  z-index: 2;
   align-self: center;
   display: inline-block;
   width: 30px;

@@ -6,7 +6,7 @@ block variables
   - wrapperClass = 'wrapper wrapper--main'
   - mainClass = 'main-content'
   - userStyle = true
-
+  
 block main-section
   section.section.works
     include ./../layout/partials/_triangles
@@ -15,6 +15,10 @@ block main-section
         use(xlink:href=svgRoot + '#works_header')
   include ./../layout/partials/_slider
   section.section.feedback
+    .feedback-parallax
+      - for (let i = 1; i < 3; i++)
+        .feedback-parallax__layer
+          img.feedback-parallax__image(src='./img/parallax/water'+i+'.png')
     h2.feedback__title Что обо мне говорят
       svg(class='feedback__decoration')
         use(xlink:href=svgRoot + '#about_header')
@@ -22,7 +26,7 @@ block main-section
       li.feedback__item
         i.feedback__icon.fa.fa-quote-left.fa-3x
         blockquote.feedback__quote.
-          Эта девушка проходила обучение веб-разработке не где-то, а в Loftschool! 18 недель только самых тяжелых испытаний и бессоных ночей!
+          Глаша проходила обучение веб-разработке не где-то, а в Loftschool! 18 недель только самых тяжелых испытаний и бессоных ночей!
         .feedback__info
           .feedback__photo
             img.feedback__img(src="./img/content/dima.jpg" alt="Дима Ковальчук")
@@ -41,6 +45,7 @@ block main-section
             .feedback__job преподаватель
     .feedback__form
       .blur
+        .blur__background
       form.contact-form#workForm(action='' method='POST')
         h3.contact-form__title Связаться со мной
         .contact-form__inputs        
@@ -54,5 +59,6 @@ block main-section
       svg(class='arrow-up__icon')
         use(xlink:href=svgRoot + '#portf_arrow_up')
 
-block scripts
+
+block moreScripts
   script(src="https://use.fontawesome.com/51b4e7e58f.js")

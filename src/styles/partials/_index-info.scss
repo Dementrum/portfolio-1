@@ -1,17 +1,14 @@
 .welcome{
-  visibility: hidden;
-  opacity: 0;
-
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  // opacity: 0;
+  // visibility: hidden;
 }
 
 .welcome--active{
-  visibility: visible;
-  opacity: 1;
+  // opacity: 1;
+  // visibility: visible;
 }
+
 
 .info{
   display: flex;

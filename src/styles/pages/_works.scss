@@ -34,8 +34,7 @@
 }
 
 .feedback{
-  background-color: #dae8ee;
-  background-image: url('./../img/bg/bg-works.jpg');
+  background-color: $light;
   background-position: top;
   background-size: cover;
 
@@ -97,6 +96,7 @@
 }
 
 .feedback__list{
+  z-index: 1;
   width: 50%;
   display: flex;
   justify-content: center;
@@ -184,8 +184,6 @@
   width: 380px;
   position: relative;
   margin-bottom: 70px;
-  border-radius: 3px;
-  overflow: hidden;
   @include tablet{
     height: 420px;
     width: 350px;
@@ -199,16 +197,21 @@
 }
 
 .blur{
-  position: absolute;
+  position: relative;
   left: 0;
   top: 0;
   width: 100%;
+  height: 100%; 
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.blur__background{
+  width: 100%;
   height: 100%;
-  background-color: rgba(255,255,255,.15);
   background-image: url('./../img/bg/bg-works.jpg');
   background-repeat: no-repeat;
-  background-size: 1800px 1200px;
-  background-position: -716px -506px;
+  background-size: contain;
   filter: blur(20px);
 }
 
@@ -326,6 +329,7 @@
 }
 
 .arrow-up{
+  z-index: 3;
   height: 20px;
   width: 30px;
   opacity: .7;
@@ -340,4 +344,31 @@
   fill: $light;
   width: 100%;
   height: 100%;
+}
+
+.feedback-parallax{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.feedback-parallax__layer {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
+}
+
+.feedback-parallax__image {
+  position: absolute;
+  height: 110%;
+  min-width: 120%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }

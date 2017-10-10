@@ -7,6 +7,10 @@ body{
   }
 }
 
+.body-active-menu{
+  overflow: hidden;
+}
+
 .wrapper{
   width: 100%;
   position: relative;
@@ -60,17 +64,8 @@ body{
   position: relative;
 }
 
-.hero--main{
-  min-height: 550px;
-  height: 100vh;
-  @include phone{
-    @media (orientation: landscape){
-      height: auto;
-    }
-  }
-}
-
 .triangles{
+  z-index: 1;
   position: absolute;
   left: 0;
   top: 0;
